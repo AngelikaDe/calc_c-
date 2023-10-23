@@ -1,0 +1,202 @@
+\doxysection{s21\+\_\+parser.\+c File Reference}
+\hypertarget{s21__parser_8c}{}\label{s21__parser_8c}\index{s21\_parser.c@{s21\_parser.c}}
+{\ttfamily \#include \"{}s21\+\_\+smartcalc.\+h\"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{s21__parser_8c_a305276bbff7f494d4f8c6f00d79ed807}{reverse\+\_\+stack}} (struct \mbox{\hyperlink{struct_n}{N}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}stack)
+\begin{DoxyCompactList}\small\item\em Reverses the order of elements in a linked stack. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{s21__parser_8c_abf3f7d345fda8d4f7fc84ef59e44ea9e}{count\+\_\+brackets}} (const char \texorpdfstring{$\ast$}{*}str)
+\begin{DoxyCompactList}\small\item\em Checks if the parentheses are balanced and pushes an opening parenthesis onto the stack. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{s21__parser_8c_aa3691a500da7180b0a463d00169abd86}{check\+\_\+brakets}} (char \texorpdfstring{$\ast$}{*}str, struct \mbox{\hyperlink{struct_n}{N}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}stack)
+\begin{DoxyCompactList}\small\item\em Counts the balance of parentheses in a string. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{s21__parser_8c_a58a70307f2089ca26dd2ee833b867db4}{valid\+\_\+number}} (char \texorpdfstring{$\ast$}{*}str, int \texorpdfstring{$\ast$}{*}res, struct \mbox{\hyperlink{struct_n}{N}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}stack)
+\begin{DoxyCompactList}\small\item\em Validates a numeric value and pushes it onto the stack. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{s21__parser_8c_ad15cce3a5f64859ec4041e040ec21523}{valid\+\_\+letter}} (char \texorpdfstring{$\ast$}{*}str, int \texorpdfstring{$\ast$}{*}res, struct \mbox{\hyperlink{struct_n}{N}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}stack)
+\begin{DoxyCompactList}\small\item\em Validates a function name and pushes its corresponding identifier onto the stack. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{s21__parser_8c_acc1fe34d509e52f8bd84979287cb2a23}{valid\+\_\+operator}} (char \texorpdfstring{$\ast$}{*}str, struct \mbox{\hyperlink{struct_n}{N}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}stack)
+\begin{DoxyCompactList}\small\item\em Validates an operator and pushes it onto the stack. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{s21__parser_8c_af0ed68dc49f33ce1e3af8608220ff982}{valid\+\_\+unary\+\_\+operator}} (char \texorpdfstring{$\ast$}{*}str, struct \mbox{\hyperlink{struct_n}{N}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}stack)
+\begin{DoxyCompactList}\small\item\em Validates a unary operator and pushes it onto the stack. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{s21__parser_8c_acdf37b714f057441304194f00a2a92b5}{x\+\_\+handler}} (char \texorpdfstring{$\ast$}{*}str, struct \mbox{\hyperlink{struct_n}{N}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}stack)
+\begin{DoxyCompactList}\small\item\em Handles the \textquotesingle{}x\textquotesingle{} variable and pushes it onto the stack. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{struct_n}{N}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{s21__parser_8c_a5cf6ca2bb527ece6101dfd2e47cda16b}{parser}} (char \texorpdfstring{$\ast$}{*}str)
+\begin{DoxyCompactList}\small\item\em Parses a mathematical expression string and constructs a linked stack. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{s21__parser_8c_aa3691a500da7180b0a463d00169abd86}\label{s21__parser_8c_aa3691a500da7180b0a463d00169abd86} 
+\index{s21\_parser.c@{s21\_parser.c}!check\_brakets@{check\_brakets}}
+\index{check\_brakets@{check\_brakets}!s21\_parser.c@{s21\_parser.c}}
+\doxysubsubsection{\texorpdfstring{check\_brakets()}{check\_brakets()}}
+{\footnotesize\ttfamily int check\+\_\+brakets (\begin{DoxyParamCaption}\item[{char \texorpdfstring{$\ast$}{*}}]{str,  }\item[{struct \mbox{\hyperlink{struct_n}{N}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{stack }\end{DoxyParamCaption})}
+
+
+
+Counts the balance of parentheses in a string. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em str} & The input string containing parentheses. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The balance of parentheses. 
+\end{DoxyReturn}
+\Hypertarget{s21__parser_8c_abf3f7d345fda8d4f7fc84ef59e44ea9e}\label{s21__parser_8c_abf3f7d345fda8d4f7fc84ef59e44ea9e} 
+\index{s21\_parser.c@{s21\_parser.c}!count\_brackets@{count\_brackets}}
+\index{count\_brackets@{count\_brackets}!s21\_parser.c@{s21\_parser.c}}
+\doxysubsubsection{\texorpdfstring{count\_brackets()}{count\_brackets()}}
+{\footnotesize\ttfamily int count\+\_\+brackets (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{str }\end{DoxyParamCaption})}
+
+
+
+Checks if the parentheses are balanced and pushes an opening parenthesis onto the stack. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em str} & The input string containing the opening parenthesis. \\
+\hline
+{\em stack} & Pointer to the pointer to the stack\textquotesingle{}s head. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 on success, otherwise an error code. 
+\end{DoxyReturn}
+\Hypertarget{s21__parser_8c_a5cf6ca2bb527ece6101dfd2e47cda16b}\label{s21__parser_8c_a5cf6ca2bb527ece6101dfd2e47cda16b} 
+\index{s21\_parser.c@{s21\_parser.c}!parser@{parser}}
+\index{parser@{parser}!s21\_parser.c@{s21\_parser.c}}
+\doxysubsubsection{\texorpdfstring{parser()}{parser()}}
+{\footnotesize\ttfamily struct \mbox{\hyperlink{struct_n}{N}} \texorpdfstring{$\ast$}{*} parser (\begin{DoxyParamCaption}\item[{char \texorpdfstring{$\ast$}{*}}]{str }\end{DoxyParamCaption})}
+
+
+
+Parses a mathematical expression string and constructs a linked stack. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em str} & The input mathematical expression string. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A pointer to the constructed stack, or NULL on failure. 
+\end{DoxyReturn}
+\Hypertarget{s21__parser_8c_a305276bbff7f494d4f8c6f00d79ed807}\label{s21__parser_8c_a305276bbff7f494d4f8c6f00d79ed807} 
+\index{s21\_parser.c@{s21\_parser.c}!reverse\_stack@{reverse\_stack}}
+\index{reverse\_stack@{reverse\_stack}!s21\_parser.c@{s21\_parser.c}}
+\doxysubsubsection{\texorpdfstring{reverse\_stack()}{reverse\_stack()}}
+{\footnotesize\ttfamily void reverse\+\_\+stack (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{struct_n}{N}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{stack }\end{DoxyParamCaption})}
+
+
+
+Reverses the order of elements in a linked stack. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em stack} & Pointer to the pointer to the stack\textquotesingle{}s head. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{s21__parser_8c_ad15cce3a5f64859ec4041e040ec21523}\label{s21__parser_8c_ad15cce3a5f64859ec4041e040ec21523} 
+\index{s21\_parser.c@{s21\_parser.c}!valid\_letter@{valid\_letter}}
+\index{valid\_letter@{valid\_letter}!s21\_parser.c@{s21\_parser.c}}
+\doxysubsubsection{\texorpdfstring{valid\_letter()}{valid\_letter()}}
+{\footnotesize\ttfamily int valid\+\_\+letter (\begin{DoxyParamCaption}\item[{char \texorpdfstring{$\ast$}{*}}]{str,  }\item[{int \texorpdfstring{$\ast$}{*}}]{res,  }\item[{struct \mbox{\hyperlink{struct_n}{N}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{stack }\end{DoxyParamCaption})}
+
+
+
+Validates a function name and pushes its corresponding identifier onto the stack. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em str} & The input string containing the function name. \\
+\hline
+{\em res} & Pointer to the result of the validation. \\
+\hline
+{\em stack} & Pointer to the pointer to the stack\textquotesingle{}s head. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 on success, -\/1 on failure. 
+\end{DoxyReturn}
+\Hypertarget{s21__parser_8c_a58a70307f2089ca26dd2ee833b867db4}\label{s21__parser_8c_a58a70307f2089ca26dd2ee833b867db4} 
+\index{s21\_parser.c@{s21\_parser.c}!valid\_number@{valid\_number}}
+\index{valid\_number@{valid\_number}!s21\_parser.c@{s21\_parser.c}}
+\doxysubsubsection{\texorpdfstring{valid\_number()}{valid\_number()}}
+{\footnotesize\ttfamily int valid\+\_\+number (\begin{DoxyParamCaption}\item[{char \texorpdfstring{$\ast$}{*}}]{str,  }\item[{int \texorpdfstring{$\ast$}{*}}]{res,  }\item[{struct \mbox{\hyperlink{struct_n}{N}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{stack }\end{DoxyParamCaption})}
+
+
+
+Validates a numeric value and pushes it onto the stack. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em str} & The input string containing the numeric value. \\
+\hline
+{\em res} & Pointer to the result of the validation. \\
+\hline
+{\em stack} & Pointer to the pointer to the stack\textquotesingle{}s head. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The length of the validated value. 
+\end{DoxyReturn}
+\Hypertarget{s21__parser_8c_acc1fe34d509e52f8bd84979287cb2a23}\label{s21__parser_8c_acc1fe34d509e52f8bd84979287cb2a23} 
+\index{s21\_parser.c@{s21\_parser.c}!valid\_operator@{valid\_operator}}
+\index{valid\_operator@{valid\_operator}!s21\_parser.c@{s21\_parser.c}}
+\doxysubsubsection{\texorpdfstring{valid\_operator()}{valid\_operator()}}
+{\footnotesize\ttfamily int valid\+\_\+operator (\begin{DoxyParamCaption}\item[{char \texorpdfstring{$\ast$}{*}}]{str,  }\item[{struct \mbox{\hyperlink{struct_n}{N}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{stack }\end{DoxyParamCaption})}
+
+
+
+Validates an operator and pushes it onto the stack. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em str} & The input string containing the operator. \\
+\hline
+{\em stack} & Pointer to the pointer to the stack\textquotesingle{}s head. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 on success, -\/1 on failure. 
+\end{DoxyReturn}
+\Hypertarget{s21__parser_8c_af0ed68dc49f33ce1e3af8608220ff982}\label{s21__parser_8c_af0ed68dc49f33ce1e3af8608220ff982} 
+\index{s21\_parser.c@{s21\_parser.c}!valid\_unary\_operator@{valid\_unary\_operator}}
+\index{valid\_unary\_operator@{valid\_unary\_operator}!s21\_parser.c@{s21\_parser.c}}
+\doxysubsubsection{\texorpdfstring{valid\_unary\_operator()}{valid\_unary\_operator()}}
+{\footnotesize\ttfamily int valid\+\_\+unary\+\_\+operator (\begin{DoxyParamCaption}\item[{char \texorpdfstring{$\ast$}{*}}]{str,  }\item[{struct \mbox{\hyperlink{struct_n}{N}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{stack }\end{DoxyParamCaption})}
+
+
+
+Validates a unary operator and pushes it onto the stack. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em str} & The input string containing the unary operator. \\
+\hline
+{\em stack} & Pointer to the pointer to the stack\textquotesingle{}s head. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 on success, -\/1 on failure. 
+\end{DoxyReturn}
+\Hypertarget{s21__parser_8c_acdf37b714f057441304194f00a2a92b5}\label{s21__parser_8c_acdf37b714f057441304194f00a2a92b5} 
+\index{s21\_parser.c@{s21\_parser.c}!x\_handler@{x\_handler}}
+\index{x\_handler@{x\_handler}!s21\_parser.c@{s21\_parser.c}}
+\doxysubsubsection{\texorpdfstring{x\_handler()}{x\_handler()}}
+{\footnotesize\ttfamily int x\+\_\+handler (\begin{DoxyParamCaption}\item[{char \texorpdfstring{$\ast$}{*}}]{str,  }\item[{struct \mbox{\hyperlink{struct_n}{N}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{stack }\end{DoxyParamCaption})}
+
+
+
+Handles the \textquotesingle{}x\textquotesingle{} variable and pushes it onto the stack. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em str} & The input string containing the \textquotesingle{}x\textquotesingle{} variable. \\
+\hline
+{\em stack} & Pointer to the pointer to the stack\textquotesingle{}s head. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 on success, -\/1 on failure. 
+\end{DoxyReturn}

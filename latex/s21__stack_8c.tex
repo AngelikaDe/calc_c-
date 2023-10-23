@@ -1,0 +1,101 @@
+\doxysection{s21\+\_\+stack.\+c File Reference}
+\hypertarget{s21__stack_8c}{}\label{s21__stack_8c}\index{s21\_stack.c@{s21\_stack.c}}
+{\ttfamily \#include \"{}s21\+\_\+smartcalc.\+h\"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_n}{N}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{s21__stack_8c_a987ee742ac3b122b1d89ef3c4ead42d7}{init\+\_\+stack}} (double value, int prior, char data)
+\begin{DoxyCompactList}\small\item\em Initializes a new stack node. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{s21__stack_8c_aa5cd99d4a04ad615eda5aba1f37d1327}{push\+\_\+stack}} (struct \mbox{\hyperlink{struct_n}{N}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}stack, double value, int prior, char data)
+\begin{DoxyCompactList}\small\item\em Pushes a new node onto the stack. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{s21__stack_8c_abb36e86d719648382658de60e54e42df}{pop\+\_\+stack}} (struct \mbox{\hyperlink{struct_n}{N}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}stack)
+\begin{DoxyCompactList}\small\item\em Pops the top node from the stack. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{s21__stack_8c_a239d84ccfce05ded8dad579d454985b1}{peek\+\_\+stack}} (struct \mbox{\hyperlink{struct_n}{N}} \texorpdfstring{$\ast$}{*}stack)
+\begin{DoxyCompactList}\small\item\em Retrieves the priority of the top node in the stack. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{s21__stack_8c_a0e0868b4bc1204185da4e7ca992fd171}{print\+\_\+stack}} (struct \mbox{\hyperlink{struct_n}{N}} \texorpdfstring{$\ast$}{*}stack)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{s21__stack_8c_a987ee742ac3b122b1d89ef3c4ead42d7}\label{s21__stack_8c_a987ee742ac3b122b1d89ef3c4ead42d7} 
+\index{s21\_stack.c@{s21\_stack.c}!init\_stack@{init\_stack}}
+\index{init\_stack@{init\_stack}!s21\_stack.c@{s21\_stack.c}}
+\doxysubsubsection{\texorpdfstring{init\_stack()}{init\_stack()}}
+{\footnotesize\ttfamily struct \mbox{\hyperlink{struct_n}{N}} \texorpdfstring{$\ast$}{*} init\+\_\+stack (\begin{DoxyParamCaption}\item[{double}]{value,  }\item[{int}]{prior,  }\item[{char}]{data }\end{DoxyParamCaption})}
+
+
+
+Initializes a new stack node. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em value} & Value to be stored in the node. \\
+\hline
+{\em prior} & Priority of the node. \\
+\hline
+{\em data} & Data associated with the node. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer to the initialized node. 
+\end{DoxyReturn}
+\Hypertarget{s21__stack_8c_a239d84ccfce05ded8dad579d454985b1}\label{s21__stack_8c_a239d84ccfce05ded8dad579d454985b1} 
+\index{s21\_stack.c@{s21\_stack.c}!peek\_stack@{peek\_stack}}
+\index{peek\_stack@{peek\_stack}!s21\_stack.c@{s21\_stack.c}}
+\doxysubsubsection{\texorpdfstring{peek\_stack()}{peek\_stack()}}
+{\footnotesize\ttfamily int peek\+\_\+stack (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{struct_n}{N}} \texorpdfstring{$\ast$}{*}}]{stack }\end{DoxyParamCaption})}
+
+
+
+Retrieves the priority of the top node in the stack. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em stack} & Pointer to the stack. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Priority of the top node, or -\/1 if the stack is empty. 
+\end{DoxyReturn}
+\Hypertarget{s21__stack_8c_abb36e86d719648382658de60e54e42df}\label{s21__stack_8c_abb36e86d719648382658de60e54e42df} 
+\index{s21\_stack.c@{s21\_stack.c}!pop\_stack@{pop\_stack}}
+\index{pop\_stack@{pop\_stack}!s21\_stack.c@{s21\_stack.c}}
+\doxysubsubsection{\texorpdfstring{pop\_stack()}{pop\_stack()}}
+{\footnotesize\ttfamily void pop\+\_\+stack (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{struct_n}{N}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{stack }\end{DoxyParamCaption})}
+
+
+
+Pops the top node from the stack. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em stack} & Pointer to the pointer of the stack. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{s21__stack_8c_a0e0868b4bc1204185da4e7ca992fd171}\label{s21__stack_8c_a0e0868b4bc1204185da4e7ca992fd171} 
+\index{s21\_stack.c@{s21\_stack.c}!print\_stack@{print\_stack}}
+\index{print\_stack@{print\_stack}!s21\_stack.c@{s21\_stack.c}}
+\doxysubsubsection{\texorpdfstring{print\_stack()}{print\_stack()}}
+{\footnotesize\ttfamily void print\+\_\+stack (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{struct_n}{N}} \texorpdfstring{$\ast$}{*}}]{stack }\end{DoxyParamCaption})}
+
+\Hypertarget{s21__stack_8c_aa5cd99d4a04ad615eda5aba1f37d1327}\label{s21__stack_8c_aa5cd99d4a04ad615eda5aba1f37d1327} 
+\index{s21\_stack.c@{s21\_stack.c}!push\_stack@{push\_stack}}
+\index{push\_stack@{push\_stack}!s21\_stack.c@{s21\_stack.c}}
+\doxysubsubsection{\texorpdfstring{push\_stack()}{push\_stack()}}
+{\footnotesize\ttfamily void push\+\_\+stack (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{struct_n}{N}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{stack,  }\item[{double}]{value,  }\item[{int}]{prior,  }\item[{char}]{data }\end{DoxyParamCaption})}
+
+
+
+Pushes a new node onto the stack. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em stack} & Pointer to the pointer of the stack. \\
+\hline
+{\em value} & Value to be stored in the node. \\
+\hline
+{\em prior} & Priority of the node. \\
+\hline
+{\em data} & Data associated with the node. \\
+\hline
+\end{DoxyParams}

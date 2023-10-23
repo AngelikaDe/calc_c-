@@ -1,0 +1,89 @@
+\doxysection{s21\+\_\+polish\+\_\+notation.\+c File Reference}
+\hypertarget{s21__polish__notation_8c}{}\label{s21__polish__notation_8c}\index{s21\_polish\_notation.c@{s21\_polish\_notation.c}}
+{\ttfamily \#include \"{}s21\+\_\+smartcalc.\+h\"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_n}{N}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{s21__polish__notation_8c_ad3c80ff95fb186ad7f19d4e7118b1bcf}{infix\+\_\+to\+\_\+postfix}} (struct \mbox{\hyperlink{struct_n}{N}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}stack)
+\begin{DoxyCompactList}\small\item\em Convert an infix expression to postfix notation using stacks. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{s21__polish__notation_8c_aebf4a372ccf7cc80f3315ef69250942b}{count\+\_\+polish\+\_\+notation}} (struct \mbox{\hyperlink{struct_n}{N}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}stack, double x\+\_\+value)
+\begin{DoxyCompactList}\small\item\em Evaluate a mathematical expression in postfix notation. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{s21__polish__notation_8c_a7f61365df16c0a840014d47bc7eab9fb}{calculation}} (char \texorpdfstring{$\ast$}{*}expr, double \texorpdfstring{$\ast$}{*}answer, const char \texorpdfstring{$\ast$}{*}x\+\_\+val)
+\begin{DoxyCompactList}\small\item\em Perform calculation of a mathematical expression. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{s21__polish__notation_8c_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{s21__polish__notation_8c_a7f61365df16c0a840014d47bc7eab9fb}\label{s21__polish__notation_8c_a7f61365df16c0a840014d47bc7eab9fb} 
+\index{s21\_polish\_notation.c@{s21\_polish\_notation.c}!calculation@{calculation}}
+\index{calculation@{calculation}!s21\_polish\_notation.c@{s21\_polish\_notation.c}}
+\doxysubsubsection{\texorpdfstring{calculation()}{calculation()}}
+{\footnotesize\ttfamily int calculation (\begin{DoxyParamCaption}\item[{char \texorpdfstring{$\ast$}{*}}]{expr,  }\item[{double \texorpdfstring{$\ast$}{*}}]{answer,  }\item[{const char \texorpdfstring{$\ast$}{*}}]{x\+\_\+val }\end{DoxyParamCaption})}
+
+
+
+Perform calculation of a mathematical expression. 
+
+This function parses, converts to postfix, and evaluates a given mathematical expression. It also accepts a value for \textquotesingle{}x\textquotesingle{} which can be substituted into the expression.
+
+
+\begin{DoxyParams}{Parameters}
+{\em expr} & The input mathematical expression as a string. \\
+\hline
+{\em answer} & A pointer to store the result of the calculation. \\
+\hline
+{\em x\+\_\+val} & The value to substitute for the variable \textquotesingle{}x\textquotesingle{} in the expression. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 if calculation is successful, 1 if an error occurs. 
+\end{DoxyReturn}
+\Hypertarget{s21__polish__notation_8c_aebf4a372ccf7cc80f3315ef69250942b}\label{s21__polish__notation_8c_aebf4a372ccf7cc80f3315ef69250942b} 
+\index{s21\_polish\_notation.c@{s21\_polish\_notation.c}!count\_polish\_notation@{count\_polish\_notation}}
+\index{count\_polish\_notation@{count\_polish\_notation}!s21\_polish\_notation.c@{s21\_polish\_notation.c}}
+\doxysubsubsection{\texorpdfstring{count\_polish\_notation()}{count\_polish\_notation()}}
+{\footnotesize\ttfamily double count\+\_\+polish\+\_\+notation (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{struct_n}{N}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{stack,  }\item[{double}]{x\+\_\+value }\end{DoxyParamCaption})}
+
+
+
+Evaluate a mathematical expression in postfix notation. 
+
+This function evaluates a mathematical expression in postfix notation using stacks. It also accepts a value for \textquotesingle{}x\textquotesingle{} which can be substituted into the expression.
+
+
+\begin{DoxyParams}{Parameters}
+{\em stack} & A pointer to the stack containing the postfix expression. \\
+\hline
+{\em x\+\_\+value} & The value to substitute for the variable \textquotesingle{}x\textquotesingle{} in the expression. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The result of evaluating the postfix expression. 
+\end{DoxyReturn}
+\Hypertarget{s21__polish__notation_8c_ad3c80ff95fb186ad7f19d4e7118b1bcf}\label{s21__polish__notation_8c_ad3c80ff95fb186ad7f19d4e7118b1bcf} 
+\index{s21\_polish\_notation.c@{s21\_polish\_notation.c}!infix\_to\_postfix@{infix\_to\_postfix}}
+\index{infix\_to\_postfix@{infix\_to\_postfix}!s21\_polish\_notation.c@{s21\_polish\_notation.c}}
+\doxysubsubsection{\texorpdfstring{infix\_to\_postfix()}{infix\_to\_postfix()}}
+{\footnotesize\ttfamily struct \mbox{\hyperlink{struct_n}{N}} \texorpdfstring{$\ast$}{*} infix\+\_\+to\+\_\+postfix (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{struct_n}{N}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{stack }\end{DoxyParamCaption})}
+
+
+
+Convert an infix expression to postfix notation using stacks. 
+
+This function takes an infix mathematical expression and converts it into postfix notation using stacks.
+
+
+\begin{DoxyParams}{Parameters}
+{\em stack} & A pointer to the input stack containing the infix expression. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A pointer to the stack containing the resulting postfix expression. 
+\end{DoxyReturn}
+\Hypertarget{s21__polish__notation_8c_ae66f6b31b5ad750f1fe042a706a4e3d4}\label{s21__polish__notation_8c_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+\index{s21\_polish\_notation.c@{s21\_polish\_notation.c}!main@{main}}
+\index{main@{main}!s21\_polish\_notation.c@{s21\_polish\_notation.c}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
