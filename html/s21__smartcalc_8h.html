@@ -71,228 +71,77 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
-<a href="#define-members">Macros</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle"><div class="title">s21_smartcalc.h File Reference</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &lt;math.h&gt;</code><br />
-<code>#include &lt;stdio.h&gt;</code><br />
-<code>#include &lt;stdlib.h&gt;</code><br />
-<code>#include &lt;string.h&gt;</code><br />
+
+<p>Header file containing declarations for the smart calculator.  
+<a href="#details">More...</a></p>
+<div class="textblock"><code>#include &lt;cmath&gt;</code><br />
+<code>#include &lt;iostream&gt;</code><br />
+<code>#include &lt;sstream&gt;</code><br />
+<code>#include &lt;stack&gt;</code><br />
+<code>#include &lt;string&gt;</code><br />
 </div>
 <p><a href="s21__smartcalc_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_n.html">N</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Structure representing a node in the stack.  <a href="struct_n.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A struct representing an item in the calculator's stack.  <a href="struct_n.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
-Macros</h2></td></tr>
-<tr class="memitem:a453f07a53194584fd2e0bb720c814c25"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="s21__smartcalc_8h.html#a453f07a53194584fd2e0bb720c814c25">STACK_MAX_SIZE</a>&#160;&#160;&#160;255</td></tr>
-<tr class="separator:a453f07a53194584fd2e0bb720c814c25"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a987ee742ac3b122b1d89ef3c4ead42d7"><td class="memItemLeft" align="right" valign="top">struct <a class="el" href="struct_n.html">N</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="s21__smartcalc_8h.html#a987ee742ac3b122b1d89ef3c4ead42d7">init_stack</a> (double value, int prior, char data)</td></tr>
-<tr class="memdesc:a987ee742ac3b122b1d89ef3c4ead42d7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes a new stack node.  <br /></td></tr>
-<tr class="separator:a987ee742ac3b122b1d89ef3c4ead42d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa5cd99d4a04ad615eda5aba1f37d1327"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="s21__smartcalc_8h.html#aa5cd99d4a04ad615eda5aba1f37d1327">push_stack</a> (struct <a class="el" href="struct_n.html">N</a> **stack, double value, int prior, char data)</td></tr>
-<tr class="memdesc:aa5cd99d4a04ad615eda5aba1f37d1327"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pushes a new node onto the stack.  <br /></td></tr>
-<tr class="separator:aa5cd99d4a04ad615eda5aba1f37d1327"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abb36e86d719648382658de60e54e42df"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="s21__smartcalc_8h.html#abb36e86d719648382658de60e54e42df">pop_stack</a> (struct <a class="el" href="struct_n.html">N</a> **stack)</td></tr>
-<tr class="memdesc:abb36e86d719648382658de60e54e42df"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pops the top node from the stack.  <br /></td></tr>
-<tr class="separator:abb36e86d719648382658de60e54e42df"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a239d84ccfce05ded8dad579d454985b1"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="s21__smartcalc_8h.html#a239d84ccfce05ded8dad579d454985b1">peek_stack</a> (struct <a class="el" href="struct_n.html">N</a> *stack)</td></tr>
-<tr class="memdesc:a239d84ccfce05ded8dad579d454985b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves the priority of the top node in the stack.  <br /></td></tr>
-<tr class="separator:a239d84ccfce05ded8dad579d454985b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0e0868b4bc1204185da4e7ca992fd171"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="s21__smartcalc_8h.html#a0e0868b4bc1204185da4e7ca992fd171">print_stack</a> (struct <a class="el" href="struct_n.html">N</a> *stack)</td></tr>
-<tr class="separator:a0e0868b4bc1204185da4e7ca992fd171"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abf3f7d345fda8d4f7fc84ef59e44ea9e"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="s21__smartcalc_8h.html#abf3f7d345fda8d4f7fc84ef59e44ea9e">count_brackets</a> (const char *str)</td></tr>
-<tr class="memdesc:abf3f7d345fda8d4f7fc84ef59e44ea9e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the parentheses are balanced and pushes an opening parenthesis onto the stack.  <br /></td></tr>
-<tr class="separator:abf3f7d345fda8d4f7fc84ef59e44ea9e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a305276bbff7f494d4f8c6f00d79ed807"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="s21__smartcalc_8h.html#a305276bbff7f494d4f8c6f00d79ed807">reverse_stack</a> (struct <a class="el" href="struct_n.html">N</a> **stack)</td></tr>
-<tr class="memdesc:a305276bbff7f494d4f8c6f00d79ed807"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reverses the order of elements in a linked stack.  <br /></td></tr>
-<tr class="separator:a305276bbff7f494d4f8c6f00d79ed807"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a82c9cad6d10283d5759adf45ffe0a257"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="s21__smartcalc_8h.html#a82c9cad6d10283d5759adf45ffe0a257">push_brakets</a> (char *str, struct <a class="el" href="struct_n.html">N</a> **stack)</td></tr>
-<tr class="separator:a82c9cad6d10283d5759adf45ffe0a257"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a58a70307f2089ca26dd2ee833b867db4"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="s21__smartcalc_8h.html#a58a70307f2089ca26dd2ee833b867db4">valid_number</a> (char *str, int *res, struct <a class="el" href="struct_n.html">N</a> **stack)</td></tr>
-<tr class="memdesc:a58a70307f2089ca26dd2ee833b867db4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Validates a numeric value and pushes it onto the stack.  <br /></td></tr>
-<tr class="separator:a58a70307f2089ca26dd2ee833b867db4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad15cce3a5f64859ec4041e040ec21523"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="s21__smartcalc_8h.html#ad15cce3a5f64859ec4041e040ec21523">valid_letter</a> (char *str, int *res, struct <a class="el" href="struct_n.html">N</a> **stack)</td></tr>
-<tr class="memdesc:ad15cce3a5f64859ec4041e040ec21523"><td class="mdescLeft">&#160;</td><td class="mdescRight">Validates a function name and pushes its corresponding identifier onto the stack.  <br /></td></tr>
-<tr class="separator:ad15cce3a5f64859ec4041e040ec21523"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acc1fe34d509e52f8bd84979287cb2a23"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="s21__smartcalc_8h.html#acc1fe34d509e52f8bd84979287cb2a23">valid_operator</a> (char *str, struct <a class="el" href="struct_n.html">N</a> **stack)</td></tr>
-<tr class="memdesc:acc1fe34d509e52f8bd84979287cb2a23"><td class="mdescLeft">&#160;</td><td class="mdescRight">Validates an operator and pushes it onto the stack.  <br /></td></tr>
-<tr class="separator:acc1fe34d509e52f8bd84979287cb2a23"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af0ed68dc49f33ce1e3af8608220ff982"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="s21__smartcalc_8h.html#af0ed68dc49f33ce1e3af8608220ff982">valid_unary_operator</a> (char *str, struct <a class="el" href="struct_n.html">N</a> **stack)</td></tr>
-<tr class="memdesc:af0ed68dc49f33ce1e3af8608220ff982"><td class="mdescLeft">&#160;</td><td class="mdescRight">Validates a unary operator and pushes it onto the stack.  <br /></td></tr>
-<tr class="separator:af0ed68dc49f33ce1e3af8608220ff982"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acdf37b714f057441304194f00a2a92b5"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="s21__smartcalc_8h.html#acdf37b714f057441304194f00a2a92b5">x_handler</a> (char *str, struct <a class="el" href="struct_n.html">N</a> **stack)</td></tr>
-<tr class="memdesc:acdf37b714f057441304194f00a2a92b5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handles the 'x' variable and pushes it onto the stack.  <br /></td></tr>
-<tr class="separator:acdf37b714f057441304194f00a2a92b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5cf6ca2bb527ece6101dfd2e47cda16b"><td class="memItemLeft" align="right" valign="top">struct <a class="el" href="struct_n.html">N</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="s21__smartcalc_8h.html#a5cf6ca2bb527ece6101dfd2e47cda16b">parser</a> (char *str)</td></tr>
-<tr class="memdesc:a5cf6ca2bb527ece6101dfd2e47cda16b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parses a mathematical expression string and constructs a linked stack.  <br /></td></tr>
-<tr class="separator:a5cf6ca2bb527ece6101dfd2e47cda16b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad3c80ff95fb186ad7f19d4e7118b1bcf"><td class="memItemLeft" align="right" valign="top">struct <a class="el" href="struct_n.html">N</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="s21__smartcalc_8h.html#ad3c80ff95fb186ad7f19d4e7118b1bcf">infix_to_postfix</a> (struct <a class="el" href="struct_n.html">N</a> **stack)</td></tr>
-<tr class="memdesc:ad3c80ff95fb186ad7f19d4e7118b1bcf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert an infix expression to postfix notation using stacks.  <br /></td></tr>
-<tr class="separator:ad3c80ff95fb186ad7f19d4e7118b1bcf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aebf4a372ccf7cc80f3315ef69250942b"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="s21__smartcalc_8h.html#aebf4a372ccf7cc80f3315ef69250942b">count_polish_notation</a> (struct <a class="el" href="struct_n.html">N</a> **stack, double x_value)</td></tr>
-<tr class="memdesc:aebf4a372ccf7cc80f3315ef69250942b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Evaluate a mathematical expression in postfix notation.  <br /></td></tr>
-<tr class="separator:aebf4a372ccf7cc80f3315ef69250942b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7f61365df16c0a840014d47bc7eab9fb"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="s21__smartcalc_8h.html#a7f61365df16c0a840014d47bc7eab9fb">calculation</a> (char *expr, double *answer, const char *x_val)</td></tr>
-<tr class="memdesc:a7f61365df16c0a840014d47bc7eab9fb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Perform calculation of a mathematical expression.  <br /></td></tr>
-<tr class="separator:a7f61365df16c0a840014d47bc7eab9fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa3691a500da7180b0a463d00169abd86"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="s21__smartcalc_8h.html#aa3691a500da7180b0a463d00169abd86">check_brakets</a> (char *str, struct <a class="el" href="struct_n.html">N</a> **stack)</td></tr>
-<tr class="memdesc:aa3691a500da7180b0a463d00169abd86"><td class="mdescLeft">&#160;</td><td class="mdescRight">Counts the balance of parentheses in a string.  <br /></td></tr>
-<tr class="separator:aa3691a500da7180b0a463d00169abd86"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1147c7f18c46c2d2dd5ba48d67290fd4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="s21__smartcalc_8h.html#a1147c7f18c46c2d2dd5ba48d67290fd4">Push_to_stack</a> (char type, double num, <a class="el" href="struct_n.html">N</a> &amp;Item, stack&lt; <a class="el" href="struct_n.html">N</a> &gt; &amp;Stack_n_or_o)</td></tr>
+<tr class="memdesc:a1147c7f18c46c2d2dd5ba48d67290fd4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Push an item onto the stack.  <br /></td></tr>
+<tr class="separator:a1147c7f18c46c2d2dd5ba48d67290fd4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a62420f2fdf6acc64c00098a136bf2984"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="s21__smartcalc_8h.html#a62420f2fdf6acc64c00098a136bf2984">Get_prior</a> (char Ch)</td></tr>
+<tr class="memdesc:a62420f2fdf6acc64c00098a136bf2984"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the operator's priority.  <br /></td></tr>
+<tr class="separator:a62420f2fdf6acc64c00098a136bf2984"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3cc1440f511952163e8610550499f2fb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="s21__smartcalc_8h.html#a3cc1440f511952163e8610550499f2fb">Math</a> (stack&lt; <a class="el" href="struct_n.html">N</a> &gt; &amp;Stack_num, stack&lt; <a class="el" href="struct_n.html">N</a> &gt; &amp;Stack_oper, <a class="el" href="struct_n.html">N</a> &amp;Item)</td></tr>
+<tr class="memdesc:a3cc1440f511952163e8610550499f2fb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Perform mathematical operations on the stack.  <br /></td></tr>
+<tr class="separator:a3cc1440f511952163e8610550499f2fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adf30812b71fcdffba7ce08879ef4b89c"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="s21__smartcalc_8h.html#adf30812b71fcdffba7ce08879ef4b89c">Check_letters</a> (const string &amp;Letters_read, stack&lt; <a class="el" href="struct_n.html">N</a> &gt; &amp;Stack_num, stack&lt; <a class="el" href="struct_n.html">N</a> &gt; &amp;Stack_oper, <a class="el" href="struct_n.html">N</a> &amp;Item)</td></tr>
+<tr class="memdesc:adf30812b71fcdffba7ce08879ef4b89c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check and process special functions.  <br /></td></tr>
+<tr class="separator:adf30812b71fcdffba7ce08879ef4b89c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a117789ff5a7f7e4b61c513de53a464f6"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="s21__smartcalc_8h.html#a117789ff5a7f7e4b61c513de53a464f6">Main_foo</a> (const string &amp;Str_read, double x_res)</td></tr>
+<tr class="memdesc:a117789ff5a7f7e4b61c513de53a464f6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main function for evaluating expressions.  <br /></td></tr>
+<tr class="separator:a117789ff5a7f7e4b61c513de53a464f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a64bea16ff41531e4e750fca247bb103b"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="s21__smartcalc_8h.html#a64bea16ff41531e4e750fca247bb103b">calculation</a> (string x_val2, double &amp;answ2, double x_res)</td></tr>
+<tr class="memdesc:a64bea16ff41531e4e750fca247bb103b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculate the result of a mathematical expression.  <br /></td></tr>
+<tr class="separator:a64bea16ff41531e4e750fca247bb103b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7a929bf65cbc777bab7e533a2755cfad"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="s21__smartcalc_8h.html#a7a929bf65cbc777bab7e533a2755cfad">isDigit</a> (char c)</td></tr>
+<tr class="memdesc:a7a929bf65cbc777bab7e533a2755cfad"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if a character is a digit.  <br /></td></tr>
+<tr class="separator:a7a929bf65cbc777bab7e533a2755cfad"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Macro Definition Documentation</h2>
-<a id="a453f07a53194584fd2e0bb720c814c25" name="a453f07a53194584fd2e0bb720c814c25"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a453f07a53194584fd2e0bb720c814c25">&#9670;&#160;</a></span>STACK_MAX_SIZE</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Header file containing declarations for the smart calculator. </p>
+</div><h2 class="groupheader">Function Documentation</h2>
+<a id="a64bea16ff41531e4e750fca247bb103b" name="a64bea16ff41531e4e750fca247bb103b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a64bea16ff41531e4e750fca247bb103b">&#9670;&#160;</a></span>calculation()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define STACK_MAX_SIZE&#160;&#160;&#160;255</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<h2 class="groupheader">Function Documentation</h2>
-<a id="a7f61365df16c0a840014d47bc7eab9fb" name="a7f61365df16c0a840014d47bc7eab9fb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7f61365df16c0a840014d47bc7eab9fb">&#9670;&#160;</a></span>calculation()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int calculation </td>
+          <td class="memname">double calculation </td>
           <td>(</td>
-          <td class="paramtype">char *&#160;</td>
-          <td class="paramname"><em>expr</em>, </td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>x_val2</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">double *&#160;</td>
-          <td class="paramname"><em>answer</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const char *&#160;</td>
-          <td class="paramname"><em>x_val</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Perform calculation of a mathematical expression. </p>
-<p>This function parses, converts to postfix, and evaluates a given mathematical expression. It also accepts a value for 'x' which can be substituted into the expression.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">expr</td><td>The input mathematical expression as a string. </td></tr>
-    <tr><td class="paramname">answer</td><td>A pointer to store the result of the calculation. </td></tr>
-    <tr><td class="paramname">x_val</td><td>The value to substitute for the variable 'x' in the expression. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>0 if calculation is successful, 1 if an error occurs. </dd></dl>
-
-</div>
-</div>
-<a id="aa3691a500da7180b0a463d00169abd86" name="aa3691a500da7180b0a463d00169abd86"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa3691a500da7180b0a463d00169abd86">&#9670;&#160;</a></span>check_brakets()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int check_brakets </td>
-          <td>(</td>
-          <td class="paramtype">char *&#160;</td>
-          <td class="paramname"><em>str</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">struct <a class="el" href="struct_n.html">N</a> **&#160;</td>
-          <td class="paramname"><em>stack</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Counts the balance of parentheses in a string. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">str</td><td>The input string containing parentheses. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>The balance of parentheses. </dd></dl>
-
-</div>
-</div>
-<a id="abf3f7d345fda8d4f7fc84ef59e44ea9e" name="abf3f7d345fda8d4f7fc84ef59e44ea9e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abf3f7d345fda8d4f7fc84ef59e44ea9e">&#9670;&#160;</a></span>count_brackets()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int count_brackets </td>
-          <td>(</td>
-          <td class="paramtype">const char *&#160;</td>
-          <td class="paramname"><em>str</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Checks if the parentheses are balanced and pushes an opening parenthesis onto the stack. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">str</td><td>The input string containing the opening parenthesis. </td></tr>
-    <tr><td class="paramname">stack</td><td>Pointer to the pointer to the stack's head. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>0 on success, otherwise an error code. </dd></dl>
-
-</div>
-</div>
-<a id="aebf4a372ccf7cc80f3315ef69250942b" name="aebf4a372ccf7cc80f3315ef69250942b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aebf4a372ccf7cc80f3315ef69250942b">&#9670;&#160;</a></span>count_polish_notation()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">double count_polish_notation </td>
-          <td>(</td>
-          <td class="paramtype">struct <a class="el" href="struct_n.html">N</a> **&#160;</td>
-          <td class="paramname"><em>stack</em>, </td>
+          <td class="paramtype">double &amp;&#160;</td>
+          <td class="paramname"><em>answ2</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>x_value</em>&#160;</td>
+          <td class="paramname"><em>x_res</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -302,247 +151,242 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Evaluate a mathematical expression in postfix notation. </p>
-<p>This function evaluates a mathematical expression in postfix notation using stacks. It also accepts a value for 'x' which can be substituted into the expression.</p>
+<p>Calculate the result of a mathematical expression. </p>
+<p>This function calculates the result of a mathematical expression.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">stack</td><td>A pointer to the stack containing the postfix expression. </td></tr>
-    <tr><td class="paramname">x_value</td><td>The value to substitute for the variable 'x' in the expression. </td></tr>
+    <tr><td class="paramname">x_val2</td><td>The expression to be calculated. </td></tr>
+    <tr><td class="paramname">answ2</td><td>The result of the calculation. </td></tr>
+    <tr><td class="paramname">x_res</td><td>The value of 'x' in the expression. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>The result of evaluating the postfix expression. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>0 if the calculation is successful, 1 if there are errors. </dd></dl>
 
 </div>
 </div>
-<a id="ad3c80ff95fb186ad7f19d4e7118b1bcf" name="ad3c80ff95fb186ad7f19d4e7118b1bcf"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad3c80ff95fb186ad7f19d4e7118b1bcf">&#9670;&#160;</a></span>infix_to_postfix()</h2>
+<a id="adf30812b71fcdffba7ce08879ef4b89c" name="adf30812b71fcdffba7ce08879ef4b89c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adf30812b71fcdffba7ce08879ef4b89c">&#9670;&#160;</a></span>Check_letters()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">struct <a class="el" href="struct_n.html">N</a> * infix_to_postfix </td>
+          <td class="memname">int Check_letters </td>
           <td>(</td>
-          <td class="paramtype">struct <a class="el" href="struct_n.html">N</a> **&#160;</td>
-          <td class="paramname"><em>stack</em></td><td>)</td>
+          <td class="paramtype">const string &amp;&#160;</td>
+          <td class="paramname"><em>Letters_read</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">stack&lt; <a class="el" href="struct_n.html">N</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>Stack_num</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">stack&lt; <a class="el" href="struct_n.html">N</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>Stack_oper</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_n.html">N</a> &amp;&#160;</td>
+          <td class="paramname"><em>Item</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Convert an infix expression to postfix notation using stacks. </p>
-<p>This function takes an infix mathematical expression and converts it into postfix notation using stacks.</p>
+<p>Check and process special functions. </p>
+<p>This function checks and processes special functions in the expression.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">stack</td><td>A pointer to the input stack containing the infix expression. </td></tr>
+    <tr><td class="paramname">Letters_read</td><td>The string containing the function. </td></tr>
+    <tr><td class="paramname">Stack_num</td><td>The stack of numbers. </td></tr>
+    <tr><td class="paramname">Stack_oper</td><td>The stack of operators. </td></tr>
+    <tr><td class="paramname">Item</td><td>The item to be used for the result. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>A pointer to the stack containing the resulting postfix expression. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>0 if the function is valid, 1 if it's invalid. </dd></dl>
 
 </div>
 </div>
-<a id="a987ee742ac3b122b1d89ef3c4ead42d7" name="a987ee742ac3b122b1d89ef3c4ead42d7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a987ee742ac3b122b1d89ef3c4ead42d7">&#9670;&#160;</a></span>init_stack()</h2>
+<a id="a62420f2fdf6acc64c00098a136bf2984" name="a62420f2fdf6acc64c00098a136bf2984"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a62420f2fdf6acc64c00098a136bf2984">&#9670;&#160;</a></span>Get_prior()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">struct <a class="el" href="struct_n.html">N</a> * init_stack </td>
+          <td class="memname">int Get_prior </td>
           <td>(</td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>value</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>prior</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
           <td class="paramtype">char&#160;</td>
-          <td class="paramname"><em>data</em>&#160;</td>
-        </tr>
-        <tr>
+          <td class="paramname"><em>Ch</em></td><td>)</td>
           <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Initializes a new stack node. </p>
+<p>Get the operator's priority. </p>
+<p>This function returns the priority of the given operator.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">value</td><td>Value to be stored in the node. </td></tr>
-    <tr><td class="paramname">prior</td><td>Priority of the node. </td></tr>
-    <tr><td class="paramname">data</td><td>Data associated with the node. </td></tr>
+    <tr><td class="paramname">Ch</td><td>The operator character. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Pointer to the initialized node. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>The operator's priority. </dd></dl>
 
 </div>
 </div>
-<a id="a5cf6ca2bb527ece6101dfd2e47cda16b" name="a5cf6ca2bb527ece6101dfd2e47cda16b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5cf6ca2bb527ece6101dfd2e47cda16b">&#9670;&#160;</a></span>parser()</h2>
+<a id="a7a929bf65cbc777bab7e533a2755cfad" name="a7a929bf65cbc777bab7e533a2755cfad"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7a929bf65cbc777bab7e533a2755cfad">&#9670;&#160;</a></span>isDigit()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">struct <a class="el" href="struct_n.html">N</a> * parser </td>
+          <td class="memname">bool isDigit </td>
           <td>(</td>
-          <td class="paramtype">char *&#160;</td>
-          <td class="paramname"><em>str</em></td><td>)</td>
+          <td class="paramtype">char&#160;</td>
+          <td class="paramname"><em>c</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Parses a mathematical expression string and constructs a linked stack. </p>
+<p>Check if a character is a digit. </p>
+<p>This function checks if a character is a digit.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">str</td><td>The input mathematical expression string. </td></tr>
+    <tr><td class="paramname">c</td><td>The character to check. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>A pointer to the constructed stack, or NULL on failure. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>true if the character is a digit, false otherwise. </dd></dl>
 
 </div>
 </div>
-<a id="a239d84ccfce05ded8dad579d454985b1" name="a239d84ccfce05ded8dad579d454985b1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a239d84ccfce05ded8dad579d454985b1">&#9670;&#160;</a></span>peek_stack()</h2>
+<a id="a117789ff5a7f7e4b61c513de53a464f6" name="a117789ff5a7f7e4b61c513de53a464f6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a117789ff5a7f7e4b61c513de53a464f6">&#9670;&#160;</a></span>Main_foo()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int peek_stack </td>
+          <td class="memname">double Main_foo </td>
           <td>(</td>
-          <td class="paramtype">struct <a class="el" href="struct_n.html">N</a> *&#160;</td>
-          <td class="paramname"><em>stack</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Retrieves the priority of the top node in the stack. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">stack</td><td>Pointer to the stack. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Priority of the top node, or -1 if the stack is empty. </dd></dl>
-
-</div>
-</div>
-<a id="abb36e86d719648382658de60e54e42df" name="abb36e86d719648382658de60e54e42df"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abb36e86d719648382658de60e54e42df">&#9670;&#160;</a></span>pop_stack()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void pop_stack </td>
-          <td>(</td>
-          <td class="paramtype">struct <a class="el" href="struct_n.html">N</a> **&#160;</td>
-          <td class="paramname"><em>stack</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Pops the top node from the stack. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">stack</td><td>Pointer to the pointer of the stack. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="a0e0868b4bc1204185da4e7ca992fd171" name="a0e0868b4bc1204185da4e7ca992fd171"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0e0868b4bc1204185da4e7ca992fd171">&#9670;&#160;</a></span>print_stack()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void print_stack </td>
-          <td>(</td>
-          <td class="paramtype">struct <a class="el" href="struct_n.html">N</a> *&#160;</td>
-          <td class="paramname"><em>stack</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a82c9cad6d10283d5759adf45ffe0a257" name="a82c9cad6d10283d5759adf45ffe0a257"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a82c9cad6d10283d5759adf45ffe0a257">&#9670;&#160;</a></span>push_brakets()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int push_brakets </td>
-          <td>(</td>
-          <td class="paramtype">char *&#160;</td>
-          <td class="paramname"><em>str</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">struct <a class="el" href="struct_n.html">N</a> **&#160;</td>
-          <td class="paramname"><em>stack</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="aa5cd99d4a04ad615eda5aba1f37d1327" name="aa5cd99d4a04ad615eda5aba1f37d1327"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa5cd99d4a04ad615eda5aba1f37d1327">&#9670;&#160;</a></span>push_stack()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void push_stack </td>
-          <td>(</td>
-          <td class="paramtype">struct <a class="el" href="struct_n.html">N</a> **&#160;</td>
-          <td class="paramname"><em>stack</em>, </td>
+          <td class="paramtype">const string &amp;&#160;</td>
+          <td class="paramname"><em>Str_read</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>value</em>, </td>
+          <td class="paramname"><em>x_res</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Main function for evaluating expressions. </p>
+<p>This is the main function for evaluating mathematical expressions.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">Str_read</td><td>The expression to be evaluated. </td></tr>
+    <tr><td class="paramname">x_res</td><td>The value of 'x' in the expression. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The result of the evaluation. </dd></dl>
+
+</div>
+</div>
+<a id="a3cc1440f511952163e8610550499f2fb" name="a3cc1440f511952163e8610550499f2fb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3cc1440f511952163e8610550499f2fb">&#9670;&#160;</a></span>Math()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Math </td>
+          <td>(</td>
+          <td class="paramtype">stack&lt; <a class="el" href="struct_n.html">N</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>Stack_num</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>prior</em>, </td>
+          <td class="paramtype">stack&lt; <a class="el" href="struct_n.html">N</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>Stack_oper</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype"><a class="el" href="struct_n.html">N</a> &amp;&#160;</td>
+          <td class="paramname"><em>Item</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Perform mathematical operations on the stack. </p>
+<p>This function performs mathematical operations on the provided stacks.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">Stack_num</td><td>The stack of numbers. </td></tr>
+    <tr><td class="paramname">Stack_oper</td><td>The stack of operators. </td></tr>
+    <tr><td class="paramname">Item</td><td>The item to be used for the result. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a1147c7f18c46c2d2dd5ba48d67290fd4" name="a1147c7f18c46c2d2dd5ba48d67290fd4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1147c7f18c46c2d2dd5ba48d67290fd4">&#9670;&#160;</a></span>Push_to_stack()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Push_to_stack </td>
+          <td>(</td>
           <td class="paramtype">char&#160;</td>
-          <td class="paramname"><em>data</em>&#160;</td>
+          <td class="paramname"><em>type</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>num</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_n.html">N</a> &amp;&#160;</td>
+          <td class="paramname"><em>Item</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">stack&lt; <a class="el" href="struct_n.html">N</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>Stack_n_or_o</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -552,246 +396,17 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Pushes a new node onto the stack. </p>
+<p>Push an item onto the stack. </p>
+<p>This function pushes an item onto the provided stack.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">stack</td><td>Pointer to the pointer of the stack. </td></tr>
-    <tr><td class="paramname">value</td><td>Value to be stored in the node. </td></tr>
-    <tr><td class="paramname">prior</td><td>Priority of the node. </td></tr>
-    <tr><td class="paramname">data</td><td>Data associated with the node. </td></tr>
+    <tr><td class="paramname">type</td><td>The type of the item. </td></tr>
+    <tr><td class="paramname">num</td><td>The numeric value of the item. </td></tr>
+    <tr><td class="paramname">Item</td><td>The item to be pushed onto the stack. </td></tr>
+    <tr><td class="paramname">Stack_n_or_o</td><td>The stack to push the item onto. </td></tr>
   </table>
   </dd>
 </dl>
-
-</div>
-</div>
-<a id="a305276bbff7f494d4f8c6f00d79ed807" name="a305276bbff7f494d4f8c6f00d79ed807"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a305276bbff7f494d4f8c6f00d79ed807">&#9670;&#160;</a></span>reverse_stack()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void reverse_stack </td>
-          <td>(</td>
-          <td class="paramtype">struct <a class="el" href="struct_n.html">N</a> **&#160;</td>
-          <td class="paramname"><em>stack</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Reverses the order of elements in a linked stack. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">stack</td><td>Pointer to the pointer to the stack's head. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="ad15cce3a5f64859ec4041e040ec21523" name="ad15cce3a5f64859ec4041e040ec21523"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad15cce3a5f64859ec4041e040ec21523">&#9670;&#160;</a></span>valid_letter()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int valid_letter </td>
-          <td>(</td>
-          <td class="paramtype">char *&#160;</td>
-          <td class="paramname"><em>str</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int *&#160;</td>
-          <td class="paramname"><em>res</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">struct <a class="el" href="struct_n.html">N</a> **&#160;</td>
-          <td class="paramname"><em>stack</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Validates a function name and pushes its corresponding identifier onto the stack. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">str</td><td>The input string containing the function name. </td></tr>
-    <tr><td class="paramname">res</td><td>Pointer to the result of the validation. </td></tr>
-    <tr><td class="paramname">stack</td><td>Pointer to the pointer to the stack's head. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>0 on success, -1 on failure. </dd></dl>
-
-</div>
-</div>
-<a id="a58a70307f2089ca26dd2ee833b867db4" name="a58a70307f2089ca26dd2ee833b867db4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a58a70307f2089ca26dd2ee833b867db4">&#9670;&#160;</a></span>valid_number()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int valid_number </td>
-          <td>(</td>
-          <td class="paramtype">char *&#160;</td>
-          <td class="paramname"><em>str</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int *&#160;</td>
-          <td class="paramname"><em>res</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">struct <a class="el" href="struct_n.html">N</a> **&#160;</td>
-          <td class="paramname"><em>stack</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Validates a numeric value and pushes it onto the stack. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">str</td><td>The input string containing the numeric value. </td></tr>
-    <tr><td class="paramname">res</td><td>Pointer to the result of the validation. </td></tr>
-    <tr><td class="paramname">stack</td><td>Pointer to the pointer to the stack's head. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>The length of the validated value. </dd></dl>
-
-</div>
-</div>
-<a id="acc1fe34d509e52f8bd84979287cb2a23" name="acc1fe34d509e52f8bd84979287cb2a23"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acc1fe34d509e52f8bd84979287cb2a23">&#9670;&#160;</a></span>valid_operator()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int valid_operator </td>
-          <td>(</td>
-          <td class="paramtype">char *&#160;</td>
-          <td class="paramname"><em>str</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">struct <a class="el" href="struct_n.html">N</a> **&#160;</td>
-          <td class="paramname"><em>stack</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Validates an operator and pushes it onto the stack. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">str</td><td>The input string containing the operator. </td></tr>
-    <tr><td class="paramname">stack</td><td>Pointer to the pointer to the stack's head. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>0 on success, -1 on failure. </dd></dl>
-
-</div>
-</div>
-<a id="af0ed68dc49f33ce1e3af8608220ff982" name="af0ed68dc49f33ce1e3af8608220ff982"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af0ed68dc49f33ce1e3af8608220ff982">&#9670;&#160;</a></span>valid_unary_operator()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int valid_unary_operator </td>
-          <td>(</td>
-          <td class="paramtype">char *&#160;</td>
-          <td class="paramname"><em>str</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">struct <a class="el" href="struct_n.html">N</a> **&#160;</td>
-          <td class="paramname"><em>stack</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Validates a unary operator and pushes it onto the stack. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">str</td><td>The input string containing the unary operator. </td></tr>
-    <tr><td class="paramname">stack</td><td>Pointer to the pointer to the stack's head. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>0 on success, -1 on failure. </dd></dl>
-
-</div>
-</div>
-<a id="acdf37b714f057441304194f00a2a92b5" name="acdf37b714f057441304194f00a2a92b5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acdf37b714f057441304194f00a2a92b5">&#9670;&#160;</a></span>x_handler()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int x_handler </td>
-          <td>(</td>
-          <td class="paramtype">char *&#160;</td>
-          <td class="paramname"><em>str</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">struct <a class="el" href="struct_n.html">N</a> **&#160;</td>
-          <td class="paramname"><em>stack</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Handles the 'x' variable and pushes it onto the stack. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">str</td><td>The input string containing the 'x' variable. </td></tr>
-    <tr><td class="paramname">stack</td><td>Pointer to the pointer to the stack's head. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>0 on success, -1 on failure. </dd></dl>
 
 </div>
 </div>

@@ -1,15 +1,5 @@
 #include "s21_smartcalc.h"
 
-void PrintStack(const stack<N>& Stack) {
-  stack<N> tempStack = Stack;
-
-  while (!tempStack.empty()) {
-    N item = tempStack.top();
-    cout << "Type: " << item.type << ", Value: " << item.value << endl;
-    tempStack.pop();
-  }
-}
-
 void Push_to_stack(char type, double num, N& Item, stack<N>& Stack_n_or_o) {
   Item.type = type;
   Item.value = num;
@@ -29,10 +19,6 @@ int Get_prior(char Ch) {
 }
 
 void Math(stack<N>& Stack_num, stack<N>& Stack_oper, N& Item) {
-  if (Stack_num.size() < 1 || Stack_oper.empty()) {
-    // Handle error or invalid input
-    return;
-  }
   double Num_a, Num_b;
   char Oper;
   Num_a = Stack_num.top().value;
@@ -64,7 +50,7 @@ void Math(stack<N>& Stack_num, stack<N>& Stack_oper, N& Item) {
     case '^':
       Num_b = Stack_num.top().value;
       Stack_num.pop();
-      Push_to_stack('0', pow(Num_a, Num_b), Item, Stack_num);
+      Push_to_stack('0', pow(Num_b, Num_a), Item, Stack_num);
       break;
     case 's':
       Push_to_stack('0', sin(Num_a), Item, Stack_num);
@@ -91,7 +77,7 @@ void Math(stack<N>& Stack_num, stack<N>& Stack_oper, N& Item) {
       Push_to_stack('0', atan(Num_a), Item, Stack_num);
       break;
     case 'g':
-      Push_to_stack('0', log(Num_a), Item, Stack_num);
+      Push_to_stack('0', log10(Num_a), Item, Stack_num);
       break;
   }
 }
@@ -136,13 +122,12 @@ int Check_letters(const string& Letters_read, stack<N>& Stack_num,
     }
     Push_to_stack('g', 0, Item, Stack_oper);
   } else {
-    cout << "Invalid function: " << Letters_read << endl;
+    // cout << "Invalid function: " << Letters_read << endl;
     return 1;
   }
   return 0;
 }
-
-int Main_foo(const string& Str_read) {
+double Main_foo(const string& Str_read, double x_res) {
   istringstream input(Str_read);
   char Ch;
   stack<N> Stack_num;
@@ -150,15 +135,14 @@ int Main_foo(const string& Str_read) {
   N Item;
   double Num_read;
   string Letters_read;
-
   while (input >> Ch) {
-    if (Ch >= '0' && Ch <= '9') {
-      input.unget();  // Unget the digit character
-      input >> Num_read;
-      Push_to_stack('0', Num_read, Item, Stack_num);
-    } else if (Stack_oper.empty() && Stack_num.empty() && Ch == '-') {
+    if (Stack_oper.empty() && Stack_num.empty() && Ch == '-') {
       Push_to_stack('0', 0, Item, Stack_num);
       Push_to_stack(Ch, 0, Item, Stack_oper);
+    } else if (Ch >= '0' && Ch <= '9') {
+      input.unget();
+      input >> Num_read;
+      Push_to_stack('0', Num_read, Item, Stack_num);
     } else if (Ch == '-' || Ch == '+' || Ch == '*' || Ch == '/' || Ch == '^') {
       while (!Stack_oper.empty() &&
              Get_prior(Ch) <= Get_prior(Stack_oper.top().type)) {
@@ -180,61 +164,98 @@ int Main_foo(const string& Str_read) {
     } else if (Ch == ' ') {
       continue;
     } else if (isalpha(Ch)) {
-      Letters_read += Ch;
-      char NextCh;
-      while (input.get(NextCh)) {
-        if (!isalpha(NextCh)) {
-          input.unget();
-          break;
+      if (Ch == 'x') {
+        Push_to_stack('0', x_res, Item, Stack_num);
+      } else {
+        Letters_read += Ch;
+        char NextCh;
+        while (input.get(NextCh)) {
+          if (!isalpha(NextCh)) {
+            input.unget();
+            break;
+          }
+          Letters_read += NextCh;
         }
-        Letters_read += NextCh;
+        Check_letters(Letters_read, Stack_num, Stack_oper, Item);
+        Letters_read.clear();
       }
-      Check_letters(Letters_read, Stack_num, Stack_oper, Item);
-      Letters_read.clear();
     } else {
-      cout << "Invalid input: " << Ch << endl;
+      // cout << "Invalid input: " << Ch << endl;
       return 1;
     }
   }
 
   if (Stack_num.size() == 1 && Stack_oper.empty()) {
-    cout << "Res = " << Stack_num.top().value << endl;
+    // cout << "Res = " << Stack_num.top().value << endl;
     return Stack_num.top().value;
+    Stack_num.pop();
   } else {
     cout << "Error: Invalid expression" << endl;
   }
   return 0;
 }
+bool isDigit(char c) { return c >= '0' && c <= '9'; }
 
-// double calculation(string x_val2, double& answ2, double x_res) {
-//   // string test1 = "3+5=";
-//   answ2 = Main_foo(x_val2);
-//   cout << "Res = " << x_res << endl;
-//   return answ2;
+bool CheckInputErrors(const string& expression) {
+  stack<char> parentheses;
+  int digit = 0;
+  for (size_t i = 0; i < expression.length(); i++) {
+    char ch = expression[i];
+    if (ch == '(') {
+      parentheses.push(ch);
+    } else if (isDigit(ch)) {
+      digit = 1;
+    } else if (ch == ')') {
+      if (parentheses.empty()) {
+        // cout << "E" << endl;
+        return true;
+      } else {
+        parentheses.pop();
+      }
+    } else if (i < expression.length() - 1 &&
+               (ch == '+' || ch == '-' || ch == '*' || ch == '/' ||
+                ch == '^') &&
+               (expression[i + 1] == '+' || expression[i + 1] == '-' ||
+                expression[i + 1] == '/' || expression[i + 1] == '*' ||
+                expression[i + 1] == '^')) {
+      // cout << "R" << ch << expression[i + 1] << endl;
+      return true;
+    }
+  }
 
-// string test2 = "sin(0.5)+2=";
-// Main_foo(test2);
+  if (!parentheses.empty()) {
+    return true;
+  }
+  if (!digit) {
+    return true;
+  }
 
-// string test3 = "ln(10)+1=";
-// Main_foo(test3);
-
-// string test4 = "sin(0.5)*cos(0.3)+tan(0.2)=";
-// Main_foo(test4);
-
-// string test5 = "log(5)+=";
-// Main_foo(test5);
-// return 0;
-// }
-
-int main() {
-  string test2 = "23/56=";
-  double answ3 = Main_foo(test2);
-  cout << "Res main = " << answ3 << endl;
-  string test5 = "tan(atan(0.5))=";
-  double answ2 = Main_foo(test5);
-  cout << "Res main = " << answ2 << endl;
-
-  // string test1 = "24+24+8=";
-  // double answ1 = Main_foo(test1);
-  // cout << "Res main= " << answ1 << endl;
+  return false;
 }
+
+double calculation(string x_val2, double& answ2, double x_res) {
+  double err = 0;
+  if (CheckInputErrors(x_val2)) {
+    // cout << "Expression has errors." << endl;
+    err = 1;
+    return err;
+  } else {
+    answ2 = Main_foo(x_val2, x_res);
+    // cout << "Res calculation= " << answ2 << endl;
+    return err;
+  }
+}
+
+// int main() {
+//   string test2 = "-(((((3++2)=";
+//   if (CheckInputErrors(test2)) {
+//     cout << "Expression has errors." << endl;
+//   } else {
+//     // Proceed with your calculations
+//     double x = 0;
+//     double answ3 = Main_foo(test2, x);
+//     cout << "Res main = " << answ3 << endl;
+//   }
+
+//   return 0;
+// }

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['main_0',['main',['../s21__polish__notation_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4',1,'s21_polish_notation.c']]]
+  ['isdigit_0',['isDigit',['../s21__smartcalc_8h.html#a7a929bf65cbc777bab7e533a2755cfad',1,'s21_smartcalc.h']]]
 ];

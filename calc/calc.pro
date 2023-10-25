@@ -11,9 +11,7 @@ CONFIG += c++17
 SOURCES += \
     main.cpp \
     mainwindow.cpp \
-    ../s21_parser.c \
-    ../s21_polish_notation.c \
-    ../s21_stack.c \
+    ../s21_main.cpp \
     qcustomplot.cpp
 
 HEADERS += \

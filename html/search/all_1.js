@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['data_0',['data',['../struct_n.html#a7345819dad5dbee7d5bf44403013971e',1,'N']]]
+  ['get_5fprior_0',['Get_prior',['../s21__smartcalc_8h.html#a62420f2fdf6acc64c00098a136bf2984',1,'s21_smartcalc.h']]]
 ];

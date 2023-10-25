@@ -188,10 +188,12 @@ void MainWindow::on_button_equal_clicked()
     char *expression = (char*) ui->textEdit->toPlainText().toStdString().c_str();
     double answer = 0;
     char *x = "N";
+    double x_res = 0;
     if (!ui->x_value->toPlainText().isEmpty()) {
         x = (char*)ui->x_value->toPlainText().toStdString().c_str();
+        x_res = atof(x);
     }
-    int err = calculation(expression, &answer, x);
+    double err = calculation(expression, answer, x_res);
     if (err) {
         ui->textEdit->setText("ERROR");
     }
@@ -232,7 +234,8 @@ void MainWindow::on_draw_graph_clicked()
         double answer = 0.0;
         std::string X_str = std::to_string(X);
         const char* X_char = X_str.c_str();
-        int err = calculation(expression, &answer, X_char);
+        double x_res = atof(X_char);
+        double err = calculation(expression, answer, x_res);
         if (err) {
             ui->textEdit->setText("ERROR");
             return;

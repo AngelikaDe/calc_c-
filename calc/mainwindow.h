@@ -2,9 +2,10 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
-extern "C" {
+//extern "C" {
+//#include "../s21_smartcalc.h"
+//}
 #include "../s21_smartcalc.h"
-}
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE

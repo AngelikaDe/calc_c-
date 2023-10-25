@@ -1,396 +1,198 @@
 \doxysection{s21\+\_\+smartcalc.\+h File Reference}
 \hypertarget{s21__smartcalc_8h}{}\label{s21__smartcalc_8h}\index{s21\_smartcalc.h@{s21\_smartcalc.h}}
-{\ttfamily \#include $<$math.\+h$>$}\newline
-{\ttfamily \#include $<$stdio.\+h$>$}\newline
-{\ttfamily \#include $<$stdlib.\+h$>$}\newline
-{\ttfamily \#include $<$string.\+h$>$}\newline
+
+
+Header file containing declarations for the smart calculator.  
+
+
+{\ttfamily \#include $<$cmath$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$sstream$>$}\newline
+{\ttfamily \#include $<$stack$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
 \doxysubsubsection*{Classes}
 \begin{DoxyCompactItemize}
 \item 
 struct \mbox{\hyperlink{struct_n}{N}}
-\begin{DoxyCompactList}\small\item\em Structure representing a node in the stack. \end{DoxyCompactList}\end{DoxyCompactItemize}
-\doxysubsubsection*{Macros}
-\begin{DoxyCompactItemize}
-\item 
-\#define \mbox{\hyperlink{s21__smartcalc_8h_a453f07a53194584fd2e0bb720c814c25}{STACK\+\_\+\+MAX\+\_\+\+SIZE}}~255
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em A struct representing an item in the calculator\textquotesingle{}s stack. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-struct \mbox{\hyperlink{struct_n}{N}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{s21__smartcalc_8h_a987ee742ac3b122b1d89ef3c4ead42d7}{init\+\_\+stack}} (double value, int prior, char data)
-\begin{DoxyCompactList}\small\item\em Initializes a new stack node. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{s21__smartcalc_8h_aa5cd99d4a04ad615eda5aba1f37d1327}{push\+\_\+stack}} (struct \mbox{\hyperlink{struct_n}{N}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}stack, double value, int prior, char data)
-\begin{DoxyCompactList}\small\item\em Pushes a new node onto the stack. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{s21__smartcalc_8h_abb36e86d719648382658de60e54e42df}{pop\+\_\+stack}} (struct \mbox{\hyperlink{struct_n}{N}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}stack)
-\begin{DoxyCompactList}\small\item\em Pops the top node from the stack. \end{DoxyCompactList}\item 
-int \mbox{\hyperlink{s21__smartcalc_8h_a239d84ccfce05ded8dad579d454985b1}{peek\+\_\+stack}} (struct \mbox{\hyperlink{struct_n}{N}} \texorpdfstring{$\ast$}{*}stack)
-\begin{DoxyCompactList}\small\item\em Retrieves the priority of the top node in the stack. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{s21__smartcalc_8h_a0e0868b4bc1204185da4e7ca992fd171}{print\+\_\+stack}} (struct \mbox{\hyperlink{struct_n}{N}} \texorpdfstring{$\ast$}{*}stack)
-\item 
-int \mbox{\hyperlink{s21__smartcalc_8h_abf3f7d345fda8d4f7fc84ef59e44ea9e}{count\+\_\+brackets}} (const char \texorpdfstring{$\ast$}{*}str)
-\begin{DoxyCompactList}\small\item\em Checks if the parentheses are balanced and pushes an opening parenthesis onto the stack. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{s21__smartcalc_8h_a305276bbff7f494d4f8c6f00d79ed807}{reverse\+\_\+stack}} (struct \mbox{\hyperlink{struct_n}{N}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}stack)
-\begin{DoxyCompactList}\small\item\em Reverses the order of elements in a linked stack. \end{DoxyCompactList}\item 
-int \mbox{\hyperlink{s21__smartcalc_8h_a82c9cad6d10283d5759adf45ffe0a257}{push\+\_\+brakets}} (char \texorpdfstring{$\ast$}{*}str, struct \mbox{\hyperlink{struct_n}{N}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}stack)
-\item 
-int \mbox{\hyperlink{s21__smartcalc_8h_a58a70307f2089ca26dd2ee833b867db4}{valid\+\_\+number}} (char \texorpdfstring{$\ast$}{*}str, int \texorpdfstring{$\ast$}{*}res, struct \mbox{\hyperlink{struct_n}{N}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}stack)
-\begin{DoxyCompactList}\small\item\em Validates a numeric value and pushes it onto the stack. \end{DoxyCompactList}\item 
-int \mbox{\hyperlink{s21__smartcalc_8h_ad15cce3a5f64859ec4041e040ec21523}{valid\+\_\+letter}} (char \texorpdfstring{$\ast$}{*}str, int \texorpdfstring{$\ast$}{*}res, struct \mbox{\hyperlink{struct_n}{N}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}stack)
-\begin{DoxyCompactList}\small\item\em Validates a function name and pushes its corresponding identifier onto the stack. \end{DoxyCompactList}\item 
-int \mbox{\hyperlink{s21__smartcalc_8h_acc1fe34d509e52f8bd84979287cb2a23}{valid\+\_\+operator}} (char \texorpdfstring{$\ast$}{*}str, struct \mbox{\hyperlink{struct_n}{N}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}stack)
-\begin{DoxyCompactList}\small\item\em Validates an operator and pushes it onto the stack. \end{DoxyCompactList}\item 
-int \mbox{\hyperlink{s21__smartcalc_8h_af0ed68dc49f33ce1e3af8608220ff982}{valid\+\_\+unary\+\_\+operator}} (char \texorpdfstring{$\ast$}{*}str, struct \mbox{\hyperlink{struct_n}{N}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}stack)
-\begin{DoxyCompactList}\small\item\em Validates a unary operator and pushes it onto the stack. \end{DoxyCompactList}\item 
-int \mbox{\hyperlink{s21__smartcalc_8h_acdf37b714f057441304194f00a2a92b5}{x\+\_\+handler}} (char \texorpdfstring{$\ast$}{*}str, struct \mbox{\hyperlink{struct_n}{N}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}stack)
-\begin{DoxyCompactList}\small\item\em Handles the \textquotesingle{}x\textquotesingle{} variable and pushes it onto the stack. \end{DoxyCompactList}\item 
-struct \mbox{\hyperlink{struct_n}{N}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{s21__smartcalc_8h_a5cf6ca2bb527ece6101dfd2e47cda16b}{parser}} (char \texorpdfstring{$\ast$}{*}str)
-\begin{DoxyCompactList}\small\item\em Parses a mathematical expression string and constructs a linked stack. \end{DoxyCompactList}\item 
-struct \mbox{\hyperlink{struct_n}{N}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{s21__smartcalc_8h_ad3c80ff95fb186ad7f19d4e7118b1bcf}{infix\+\_\+to\+\_\+postfix}} (struct \mbox{\hyperlink{struct_n}{N}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}stack)
-\begin{DoxyCompactList}\small\item\em Convert an infix expression to postfix notation using stacks. \end{DoxyCompactList}\item 
-double \mbox{\hyperlink{s21__smartcalc_8h_aebf4a372ccf7cc80f3315ef69250942b}{count\+\_\+polish\+\_\+notation}} (struct \mbox{\hyperlink{struct_n}{N}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}stack, double x\+\_\+value)
-\begin{DoxyCompactList}\small\item\em Evaluate a mathematical expression in postfix notation. \end{DoxyCompactList}\item 
-int \mbox{\hyperlink{s21__smartcalc_8h_a7f61365df16c0a840014d47bc7eab9fb}{calculation}} (char \texorpdfstring{$\ast$}{*}expr, double \texorpdfstring{$\ast$}{*}answer, const char \texorpdfstring{$\ast$}{*}x\+\_\+val)
-\begin{DoxyCompactList}\small\item\em Perform calculation of a mathematical expression. \end{DoxyCompactList}\item 
-int \mbox{\hyperlink{s21__smartcalc_8h_aa3691a500da7180b0a463d00169abd86}{check\+\_\+brakets}} (char \texorpdfstring{$\ast$}{*}str, struct \mbox{\hyperlink{struct_n}{N}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}stack)
-\begin{DoxyCompactList}\small\item\em Counts the balance of parentheses in a string. \end{DoxyCompactList}\end{DoxyCompactItemize}
+void \mbox{\hyperlink{s21__smartcalc_8h_a1147c7f18c46c2d2dd5ba48d67290fd4}{Push\+\_\+to\+\_\+stack}} (char type, double num, \mbox{\hyperlink{struct_n}{N}} \&Item, stack$<$ \mbox{\hyperlink{struct_n}{N}} $>$ \&Stack\+\_\+n\+\_\+or\+\_\+o)
+\begin{DoxyCompactList}\small\item\em Push an item onto the stack. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{s21__smartcalc_8h_a62420f2fdf6acc64c00098a136bf2984}{Get\+\_\+prior}} (char Ch)
+\begin{DoxyCompactList}\small\item\em Get the operator\textquotesingle{}s priority. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{s21__smartcalc_8h_a3cc1440f511952163e8610550499f2fb}{Math}} (stack$<$ \mbox{\hyperlink{struct_n}{N}} $>$ \&Stack\+\_\+num, stack$<$ \mbox{\hyperlink{struct_n}{N}} $>$ \&Stack\+\_\+oper, \mbox{\hyperlink{struct_n}{N}} \&Item)
+\begin{DoxyCompactList}\small\item\em Perform mathematical operations on the stack. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{s21__smartcalc_8h_adf30812b71fcdffba7ce08879ef4b89c}{Check\+\_\+letters}} (const string \&Letters\+\_\+read, stack$<$ \mbox{\hyperlink{struct_n}{N}} $>$ \&Stack\+\_\+num, stack$<$ \mbox{\hyperlink{struct_n}{N}} $>$ \&Stack\+\_\+oper, \mbox{\hyperlink{struct_n}{N}} \&Item)
+\begin{DoxyCompactList}\small\item\em Check and process special functions. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{s21__smartcalc_8h_a117789ff5a7f7e4b61c513de53a464f6}{Main\+\_\+foo}} (const string \&Str\+\_\+read, double x\+\_\+res)
+\begin{DoxyCompactList}\small\item\em Main function for evaluating expressions. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{s21__smartcalc_8h_a64bea16ff41531e4e750fca247bb103b}{calculation}} (string x\+\_\+val2, double \&answ2, double x\+\_\+res)
+\begin{DoxyCompactList}\small\item\em Calculate the result of a mathematical expression. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{s21__smartcalc_8h_a7a929bf65cbc777bab7e533a2755cfad}{is\+Digit}} (char c)
+\begin{DoxyCompactList}\small\item\em Check if a character is a digit. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
-\doxysubsection{Macro Definition Documentation}
-\Hypertarget{s21__smartcalc_8h_a453f07a53194584fd2e0bb720c814c25}\label{s21__smartcalc_8h_a453f07a53194584fd2e0bb720c814c25} 
-\index{s21\_smartcalc.h@{s21\_smartcalc.h}!STACK\_MAX\_SIZE@{STACK\_MAX\_SIZE}}
-\index{STACK\_MAX\_SIZE@{STACK\_MAX\_SIZE}!s21\_smartcalc.h@{s21\_smartcalc.h}}
-\doxysubsubsection{\texorpdfstring{STACK\_MAX\_SIZE}{STACK\_MAX\_SIZE}}
-{\footnotesize\ttfamily \#define STACK\+\_\+\+MAX\+\_\+\+SIZE~255}
+\doxysubsection{Detailed Description}
+Header file containing declarations for the smart calculator. 
 
 
 
 \doxysubsection{Function Documentation}
-\Hypertarget{s21__smartcalc_8h_a7f61365df16c0a840014d47bc7eab9fb}\label{s21__smartcalc_8h_a7f61365df16c0a840014d47bc7eab9fb} 
+\Hypertarget{s21__smartcalc_8h_a64bea16ff41531e4e750fca247bb103b}\label{s21__smartcalc_8h_a64bea16ff41531e4e750fca247bb103b} 
 \index{s21\_smartcalc.h@{s21\_smartcalc.h}!calculation@{calculation}}
 \index{calculation@{calculation}!s21\_smartcalc.h@{s21\_smartcalc.h}}
 \doxysubsubsection{\texorpdfstring{calculation()}{calculation()}}
-{\footnotesize\ttfamily int calculation (\begin{DoxyParamCaption}\item[{char \texorpdfstring{$\ast$}{*}}]{expr,  }\item[{double \texorpdfstring{$\ast$}{*}}]{answer,  }\item[{const char \texorpdfstring{$\ast$}{*}}]{x\+\_\+val }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily double calculation (\begin{DoxyParamCaption}\item[{string}]{x\+\_\+val2,  }\item[{double \&}]{answ2,  }\item[{double}]{x\+\_\+res }\end{DoxyParamCaption})}
 
 
 
-Perform calculation of a mathematical expression. 
+Calculate the result of a mathematical expression. 
 
-This function parses, converts to postfix, and evaluates a given mathematical expression. It also accepts a value for \textquotesingle{}x\textquotesingle{} which can be substituted into the expression.
+This function calculates the result of a mathematical expression.
 
 
 \begin{DoxyParams}{Parameters}
-{\em expr} & The input mathematical expression as a string. \\
+{\em x\+\_\+val2} & The expression to be calculated. \\
 \hline
-{\em answer} & A pointer to store the result of the calculation. \\
+{\em answ2} & The result of the calculation. \\
 \hline
-{\em x\+\_\+val} & The value to substitute for the variable \textquotesingle{}x\textquotesingle{} in the expression. \\
+{\em x\+\_\+res} & The value of \textquotesingle{}x\textquotesingle{} in the expression. \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-0 if calculation is successful, 1 if an error occurs. 
+0 if the calculation is successful, 1 if there are errors. 
 \end{DoxyReturn}
-\Hypertarget{s21__smartcalc_8h_aa3691a500da7180b0a463d00169abd86}\label{s21__smartcalc_8h_aa3691a500da7180b0a463d00169abd86} 
-\index{s21\_smartcalc.h@{s21\_smartcalc.h}!check\_brakets@{check\_brakets}}
-\index{check\_brakets@{check\_brakets}!s21\_smartcalc.h@{s21\_smartcalc.h}}
-\doxysubsubsection{\texorpdfstring{check\_brakets()}{check\_brakets()}}
-{\footnotesize\ttfamily int check\+\_\+brakets (\begin{DoxyParamCaption}\item[{char \texorpdfstring{$\ast$}{*}}]{str,  }\item[{struct \mbox{\hyperlink{struct_n}{N}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{stack }\end{DoxyParamCaption})}
+\Hypertarget{s21__smartcalc_8h_adf30812b71fcdffba7ce08879ef4b89c}\label{s21__smartcalc_8h_adf30812b71fcdffba7ce08879ef4b89c} 
+\index{s21\_smartcalc.h@{s21\_smartcalc.h}!Check\_letters@{Check\_letters}}
+\index{Check\_letters@{Check\_letters}!s21\_smartcalc.h@{s21\_smartcalc.h}}
+\doxysubsubsection{\texorpdfstring{Check\_letters()}{Check\_letters()}}
+{\footnotesize\ttfamily int Check\+\_\+letters (\begin{DoxyParamCaption}\item[{const string \&}]{Letters\+\_\+read,  }\item[{stack$<$ \mbox{\hyperlink{struct_n}{N}} $>$ \&}]{Stack\+\_\+num,  }\item[{stack$<$ \mbox{\hyperlink{struct_n}{N}} $>$ \&}]{Stack\+\_\+oper,  }\item[{\mbox{\hyperlink{struct_n}{N}} \&}]{Item }\end{DoxyParamCaption})}
 
 
 
-Counts the balance of parentheses in a string. 
+Check and process special functions. 
+
+This function checks and processes special functions in the expression.
 
 
 \begin{DoxyParams}{Parameters}
-{\em str} & The input string containing parentheses. \\
+{\em Letters\+\_\+read} & The string containing the function. \\
+\hline
+{\em Stack\+\_\+num} & The stack of numbers. \\
+\hline
+{\em Stack\+\_\+oper} & The stack of operators. \\
+\hline
+{\em Item} & The item to be used for the result. \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-The balance of parentheses. 
+0 if the function is valid, 1 if it\textquotesingle{}s invalid. 
 \end{DoxyReturn}
-\Hypertarget{s21__smartcalc_8h_abf3f7d345fda8d4f7fc84ef59e44ea9e}\label{s21__smartcalc_8h_abf3f7d345fda8d4f7fc84ef59e44ea9e} 
-\index{s21\_smartcalc.h@{s21\_smartcalc.h}!count\_brackets@{count\_brackets}}
-\index{count\_brackets@{count\_brackets}!s21\_smartcalc.h@{s21\_smartcalc.h}}
-\doxysubsubsection{\texorpdfstring{count\_brackets()}{count\_brackets()}}
-{\footnotesize\ttfamily int count\+\_\+brackets (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{str }\end{DoxyParamCaption})}
+\Hypertarget{s21__smartcalc_8h_a62420f2fdf6acc64c00098a136bf2984}\label{s21__smartcalc_8h_a62420f2fdf6acc64c00098a136bf2984} 
+\index{s21\_smartcalc.h@{s21\_smartcalc.h}!Get\_prior@{Get\_prior}}
+\index{Get\_prior@{Get\_prior}!s21\_smartcalc.h@{s21\_smartcalc.h}}
+\doxysubsubsection{\texorpdfstring{Get\_prior()}{Get\_prior()}}
+{\footnotesize\ttfamily int Get\+\_\+prior (\begin{DoxyParamCaption}\item[{char}]{Ch }\end{DoxyParamCaption})}
 
 
 
-Checks if the parentheses are balanced and pushes an opening parenthesis onto the stack. 
+Get the operator\textquotesingle{}s priority. 
+
+This function returns the priority of the given operator.
 
 
 \begin{DoxyParams}{Parameters}
-{\em str} & The input string containing the opening parenthesis. \\
-\hline
-{\em stack} & Pointer to the pointer to the stack\textquotesingle{}s head. \\
+{\em Ch} & The operator character. \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-0 on success, otherwise an error code. 
+The operator\textquotesingle{}s priority. 
 \end{DoxyReturn}
-\Hypertarget{s21__smartcalc_8h_aebf4a372ccf7cc80f3315ef69250942b}\label{s21__smartcalc_8h_aebf4a372ccf7cc80f3315ef69250942b} 
-\index{s21\_smartcalc.h@{s21\_smartcalc.h}!count\_polish\_notation@{count\_polish\_notation}}
-\index{count\_polish\_notation@{count\_polish\_notation}!s21\_smartcalc.h@{s21\_smartcalc.h}}
-\doxysubsubsection{\texorpdfstring{count\_polish\_notation()}{count\_polish\_notation()}}
-{\footnotesize\ttfamily double count\+\_\+polish\+\_\+notation (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{struct_n}{N}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{stack,  }\item[{double}]{x\+\_\+value }\end{DoxyParamCaption})}
+\Hypertarget{s21__smartcalc_8h_a7a929bf65cbc777bab7e533a2755cfad}\label{s21__smartcalc_8h_a7a929bf65cbc777bab7e533a2755cfad} 
+\index{s21\_smartcalc.h@{s21\_smartcalc.h}!isDigit@{isDigit}}
+\index{isDigit@{isDigit}!s21\_smartcalc.h@{s21\_smartcalc.h}}
+\doxysubsubsection{\texorpdfstring{isDigit()}{isDigit()}}
+{\footnotesize\ttfamily bool is\+Digit (\begin{DoxyParamCaption}\item[{char}]{c }\end{DoxyParamCaption})}
 
 
 
-Evaluate a mathematical expression in postfix notation. 
+Check if a character is a digit. 
 
-This function evaluates a mathematical expression in postfix notation using stacks. It also accepts a value for \textquotesingle{}x\textquotesingle{} which can be substituted into the expression.
+This function checks if a character is a digit.
 
 
 \begin{DoxyParams}{Parameters}
-{\em stack} & A pointer to the stack containing the postfix expression. \\
-\hline
-{\em x\+\_\+value} & The value to substitute for the variable \textquotesingle{}x\textquotesingle{} in the expression. \\
+{\em c} & The character to check. \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-The result of evaluating the postfix expression. 
+true if the character is a digit, false otherwise. 
 \end{DoxyReturn}
-\Hypertarget{s21__smartcalc_8h_ad3c80ff95fb186ad7f19d4e7118b1bcf}\label{s21__smartcalc_8h_ad3c80ff95fb186ad7f19d4e7118b1bcf} 
-\index{s21\_smartcalc.h@{s21\_smartcalc.h}!infix\_to\_postfix@{infix\_to\_postfix}}
-\index{infix\_to\_postfix@{infix\_to\_postfix}!s21\_smartcalc.h@{s21\_smartcalc.h}}
-\doxysubsubsection{\texorpdfstring{infix\_to\_postfix()}{infix\_to\_postfix()}}
-{\footnotesize\ttfamily struct \mbox{\hyperlink{struct_n}{N}} \texorpdfstring{$\ast$}{*} infix\+\_\+to\+\_\+postfix (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{struct_n}{N}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{stack }\end{DoxyParamCaption})}
+\Hypertarget{s21__smartcalc_8h_a117789ff5a7f7e4b61c513de53a464f6}\label{s21__smartcalc_8h_a117789ff5a7f7e4b61c513de53a464f6} 
+\index{s21\_smartcalc.h@{s21\_smartcalc.h}!Main\_foo@{Main\_foo}}
+\index{Main\_foo@{Main\_foo}!s21\_smartcalc.h@{s21\_smartcalc.h}}
+\doxysubsubsection{\texorpdfstring{Main\_foo()}{Main\_foo()}}
+{\footnotesize\ttfamily double Main\+\_\+foo (\begin{DoxyParamCaption}\item[{const string \&}]{Str\+\_\+read,  }\item[{double}]{x\+\_\+res }\end{DoxyParamCaption})}
 
 
 
-Convert an infix expression to postfix notation using stacks. 
+Main function for evaluating expressions. 
 
-This function takes an infix mathematical expression and converts it into postfix notation using stacks.
+This is the main function for evaluating mathematical expressions.
 
 
 \begin{DoxyParams}{Parameters}
-{\em stack} & A pointer to the input stack containing the infix expression. \\
+{\em Str\+\_\+read} & The expression to be evaluated. \\
+\hline
+{\em x\+\_\+res} & The value of \textquotesingle{}x\textquotesingle{} in the expression. \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-A pointer to the stack containing the resulting postfix expression. 
+The result of the evaluation. 
 \end{DoxyReturn}
-\Hypertarget{s21__smartcalc_8h_a987ee742ac3b122b1d89ef3c4ead42d7}\label{s21__smartcalc_8h_a987ee742ac3b122b1d89ef3c4ead42d7} 
-\index{s21\_smartcalc.h@{s21\_smartcalc.h}!init\_stack@{init\_stack}}
-\index{init\_stack@{init\_stack}!s21\_smartcalc.h@{s21\_smartcalc.h}}
-\doxysubsubsection{\texorpdfstring{init\_stack()}{init\_stack()}}
-{\footnotesize\ttfamily struct \mbox{\hyperlink{struct_n}{N}} \texorpdfstring{$\ast$}{*} init\+\_\+stack (\begin{DoxyParamCaption}\item[{double}]{value,  }\item[{int}]{prior,  }\item[{char}]{data }\end{DoxyParamCaption})}
+\Hypertarget{s21__smartcalc_8h_a3cc1440f511952163e8610550499f2fb}\label{s21__smartcalc_8h_a3cc1440f511952163e8610550499f2fb} 
+\index{s21\_smartcalc.h@{s21\_smartcalc.h}!Math@{Math}}
+\index{Math@{Math}!s21\_smartcalc.h@{s21\_smartcalc.h}}
+\doxysubsubsection{\texorpdfstring{Math()}{Math()}}
+{\footnotesize\ttfamily void Math (\begin{DoxyParamCaption}\item[{stack$<$ \mbox{\hyperlink{struct_n}{N}} $>$ \&}]{Stack\+\_\+num,  }\item[{stack$<$ \mbox{\hyperlink{struct_n}{N}} $>$ \&}]{Stack\+\_\+oper,  }\item[{\mbox{\hyperlink{struct_n}{N}} \&}]{Item }\end{DoxyParamCaption})}
 
 
 
-Initializes a new stack node. 
+Perform mathematical operations on the stack. 
 
-
-\begin{DoxyParams}{Parameters}
-{\em value} & Value to be stored in the node. \\
-\hline
-{\em prior} & Priority of the node. \\
-\hline
-{\em data} & Data associated with the node. \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-Pointer to the initialized node. 
-\end{DoxyReturn}
-\Hypertarget{s21__smartcalc_8h_a5cf6ca2bb527ece6101dfd2e47cda16b}\label{s21__smartcalc_8h_a5cf6ca2bb527ece6101dfd2e47cda16b} 
-\index{s21\_smartcalc.h@{s21\_smartcalc.h}!parser@{parser}}
-\index{parser@{parser}!s21\_smartcalc.h@{s21\_smartcalc.h}}
-\doxysubsubsection{\texorpdfstring{parser()}{parser()}}
-{\footnotesize\ttfamily struct \mbox{\hyperlink{struct_n}{N}} \texorpdfstring{$\ast$}{*} parser (\begin{DoxyParamCaption}\item[{char \texorpdfstring{$\ast$}{*}}]{str }\end{DoxyParamCaption})}
-
-
-
-Parses a mathematical expression string and constructs a linked stack. 
+This function performs mathematical operations on the provided stacks.
 
 
 \begin{DoxyParams}{Parameters}
-{\em str} & The input mathematical expression string. \\
+{\em Stack\+\_\+num} & The stack of numbers. \\
+\hline
+{\em Stack\+\_\+oper} & The stack of operators. \\
+\hline
+{\em Item} & The item to be used for the result. \\
 \hline
 \end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-A pointer to the constructed stack, or NULL on failure. 
-\end{DoxyReturn}
-\Hypertarget{s21__smartcalc_8h_a239d84ccfce05ded8dad579d454985b1}\label{s21__smartcalc_8h_a239d84ccfce05ded8dad579d454985b1} 
-\index{s21\_smartcalc.h@{s21\_smartcalc.h}!peek\_stack@{peek\_stack}}
-\index{peek\_stack@{peek\_stack}!s21\_smartcalc.h@{s21\_smartcalc.h}}
-\doxysubsubsection{\texorpdfstring{peek\_stack()}{peek\_stack()}}
-{\footnotesize\ttfamily int peek\+\_\+stack (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{struct_n}{N}} \texorpdfstring{$\ast$}{*}}]{stack }\end{DoxyParamCaption})}
+\Hypertarget{s21__smartcalc_8h_a1147c7f18c46c2d2dd5ba48d67290fd4}\label{s21__smartcalc_8h_a1147c7f18c46c2d2dd5ba48d67290fd4} 
+\index{s21\_smartcalc.h@{s21\_smartcalc.h}!Push\_to\_stack@{Push\_to\_stack}}
+\index{Push\_to\_stack@{Push\_to\_stack}!s21\_smartcalc.h@{s21\_smartcalc.h}}
+\doxysubsubsection{\texorpdfstring{Push\_to\_stack()}{Push\_to\_stack()}}
+{\footnotesize\ttfamily void Push\+\_\+to\+\_\+stack (\begin{DoxyParamCaption}\item[{char}]{type,  }\item[{double}]{num,  }\item[{\mbox{\hyperlink{struct_n}{N}} \&}]{Item,  }\item[{stack$<$ \mbox{\hyperlink{struct_n}{N}} $>$ \&}]{Stack\+\_\+n\+\_\+or\+\_\+o }\end{DoxyParamCaption})}
 
 
 
-Retrieves the priority of the top node in the stack. 
+Push an item onto the stack. 
+
+This function pushes an item onto the provided stack.
 
 
 \begin{DoxyParams}{Parameters}
-{\em stack} & Pointer to the stack. \\
+{\em type} & The type of the item. \\
+\hline
+{\em num} & The numeric value of the item. \\
+\hline
+{\em Item} & The item to be pushed onto the stack. \\
+\hline
+{\em Stack\+\_\+n\+\_\+or\+\_\+o} & The stack to push the item onto. \\
 \hline
 \end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-Priority of the top node, or -\/1 if the stack is empty. 
-\end{DoxyReturn}
-\Hypertarget{s21__smartcalc_8h_abb36e86d719648382658de60e54e42df}\label{s21__smartcalc_8h_abb36e86d719648382658de60e54e42df} 
-\index{s21\_smartcalc.h@{s21\_smartcalc.h}!pop\_stack@{pop\_stack}}
-\index{pop\_stack@{pop\_stack}!s21\_smartcalc.h@{s21\_smartcalc.h}}
-\doxysubsubsection{\texorpdfstring{pop\_stack()}{pop\_stack()}}
-{\footnotesize\ttfamily void pop\+\_\+stack (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{struct_n}{N}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{stack }\end{DoxyParamCaption})}
-
-
-
-Pops the top node from the stack. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em stack} & Pointer to the pointer of the stack. \\
-\hline
-\end{DoxyParams}
-\Hypertarget{s21__smartcalc_8h_a0e0868b4bc1204185da4e7ca992fd171}\label{s21__smartcalc_8h_a0e0868b4bc1204185da4e7ca992fd171} 
-\index{s21\_smartcalc.h@{s21\_smartcalc.h}!print\_stack@{print\_stack}}
-\index{print\_stack@{print\_stack}!s21\_smartcalc.h@{s21\_smartcalc.h}}
-\doxysubsubsection{\texorpdfstring{print\_stack()}{print\_stack()}}
-{\footnotesize\ttfamily void print\+\_\+stack (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{struct_n}{N}} \texorpdfstring{$\ast$}{*}}]{stack }\end{DoxyParamCaption})}
-
-\Hypertarget{s21__smartcalc_8h_a82c9cad6d10283d5759adf45ffe0a257}\label{s21__smartcalc_8h_a82c9cad6d10283d5759adf45ffe0a257} 
-\index{s21\_smartcalc.h@{s21\_smartcalc.h}!push\_brakets@{push\_brakets}}
-\index{push\_brakets@{push\_brakets}!s21\_smartcalc.h@{s21\_smartcalc.h}}
-\doxysubsubsection{\texorpdfstring{push\_brakets()}{push\_brakets()}}
-{\footnotesize\ttfamily int push\+\_\+brakets (\begin{DoxyParamCaption}\item[{char \texorpdfstring{$\ast$}{*}}]{str,  }\item[{struct \mbox{\hyperlink{struct_n}{N}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{stack }\end{DoxyParamCaption})}
-
-\Hypertarget{s21__smartcalc_8h_aa5cd99d4a04ad615eda5aba1f37d1327}\label{s21__smartcalc_8h_aa5cd99d4a04ad615eda5aba1f37d1327} 
-\index{s21\_smartcalc.h@{s21\_smartcalc.h}!push\_stack@{push\_stack}}
-\index{push\_stack@{push\_stack}!s21\_smartcalc.h@{s21\_smartcalc.h}}
-\doxysubsubsection{\texorpdfstring{push\_stack()}{push\_stack()}}
-{\footnotesize\ttfamily void push\+\_\+stack (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{struct_n}{N}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{stack,  }\item[{double}]{value,  }\item[{int}]{prior,  }\item[{char}]{data }\end{DoxyParamCaption})}
-
-
-
-Pushes a new node onto the stack. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em stack} & Pointer to the pointer of the stack. \\
-\hline
-{\em value} & Value to be stored in the node. \\
-\hline
-{\em prior} & Priority of the node. \\
-\hline
-{\em data} & Data associated with the node. \\
-\hline
-\end{DoxyParams}
-\Hypertarget{s21__smartcalc_8h_a305276bbff7f494d4f8c6f00d79ed807}\label{s21__smartcalc_8h_a305276bbff7f494d4f8c6f00d79ed807} 
-\index{s21\_smartcalc.h@{s21\_smartcalc.h}!reverse\_stack@{reverse\_stack}}
-\index{reverse\_stack@{reverse\_stack}!s21\_smartcalc.h@{s21\_smartcalc.h}}
-\doxysubsubsection{\texorpdfstring{reverse\_stack()}{reverse\_stack()}}
-{\footnotesize\ttfamily void reverse\+\_\+stack (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{struct_n}{N}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{stack }\end{DoxyParamCaption})}
-
-
-
-Reverses the order of elements in a linked stack. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em stack} & Pointer to the pointer to the stack\textquotesingle{}s head. \\
-\hline
-\end{DoxyParams}
-\Hypertarget{s21__smartcalc_8h_ad15cce3a5f64859ec4041e040ec21523}\label{s21__smartcalc_8h_ad15cce3a5f64859ec4041e040ec21523} 
-\index{s21\_smartcalc.h@{s21\_smartcalc.h}!valid\_letter@{valid\_letter}}
-\index{valid\_letter@{valid\_letter}!s21\_smartcalc.h@{s21\_smartcalc.h}}
-\doxysubsubsection{\texorpdfstring{valid\_letter()}{valid\_letter()}}
-{\footnotesize\ttfamily int valid\+\_\+letter (\begin{DoxyParamCaption}\item[{char \texorpdfstring{$\ast$}{*}}]{str,  }\item[{int \texorpdfstring{$\ast$}{*}}]{res,  }\item[{struct \mbox{\hyperlink{struct_n}{N}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{stack }\end{DoxyParamCaption})}
-
-
-
-Validates a function name and pushes its corresponding identifier onto the stack. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em str} & The input string containing the function name. \\
-\hline
-{\em res} & Pointer to the result of the validation. \\
-\hline
-{\em stack} & Pointer to the pointer to the stack\textquotesingle{}s head. \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-0 on success, -\/1 on failure. 
-\end{DoxyReturn}
-\Hypertarget{s21__smartcalc_8h_a58a70307f2089ca26dd2ee833b867db4}\label{s21__smartcalc_8h_a58a70307f2089ca26dd2ee833b867db4} 
-\index{s21\_smartcalc.h@{s21\_smartcalc.h}!valid\_number@{valid\_number}}
-\index{valid\_number@{valid\_number}!s21\_smartcalc.h@{s21\_smartcalc.h}}
-\doxysubsubsection{\texorpdfstring{valid\_number()}{valid\_number()}}
-{\footnotesize\ttfamily int valid\+\_\+number (\begin{DoxyParamCaption}\item[{char \texorpdfstring{$\ast$}{*}}]{str,  }\item[{int \texorpdfstring{$\ast$}{*}}]{res,  }\item[{struct \mbox{\hyperlink{struct_n}{N}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{stack }\end{DoxyParamCaption})}
-
-
-
-Validates a numeric value and pushes it onto the stack. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em str} & The input string containing the numeric value. \\
-\hline
-{\em res} & Pointer to the result of the validation. \\
-\hline
-{\em stack} & Pointer to the pointer to the stack\textquotesingle{}s head. \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-The length of the validated value. 
-\end{DoxyReturn}
-\Hypertarget{s21__smartcalc_8h_acc1fe34d509e52f8bd84979287cb2a23}\label{s21__smartcalc_8h_acc1fe34d509e52f8bd84979287cb2a23} 
-\index{s21\_smartcalc.h@{s21\_smartcalc.h}!valid\_operator@{valid\_operator}}
-\index{valid\_operator@{valid\_operator}!s21\_smartcalc.h@{s21\_smartcalc.h}}
-\doxysubsubsection{\texorpdfstring{valid\_operator()}{valid\_operator()}}
-{\footnotesize\ttfamily int valid\+\_\+operator (\begin{DoxyParamCaption}\item[{char \texorpdfstring{$\ast$}{*}}]{str,  }\item[{struct \mbox{\hyperlink{struct_n}{N}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{stack }\end{DoxyParamCaption})}
-
-
-
-Validates an operator and pushes it onto the stack. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em str} & The input string containing the operator. \\
-\hline
-{\em stack} & Pointer to the pointer to the stack\textquotesingle{}s head. \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-0 on success, -\/1 on failure. 
-\end{DoxyReturn}
-\Hypertarget{s21__smartcalc_8h_af0ed68dc49f33ce1e3af8608220ff982}\label{s21__smartcalc_8h_af0ed68dc49f33ce1e3af8608220ff982} 
-\index{s21\_smartcalc.h@{s21\_smartcalc.h}!valid\_unary\_operator@{valid\_unary\_operator}}
-\index{valid\_unary\_operator@{valid\_unary\_operator}!s21\_smartcalc.h@{s21\_smartcalc.h}}
-\doxysubsubsection{\texorpdfstring{valid\_unary\_operator()}{valid\_unary\_operator()}}
-{\footnotesize\ttfamily int valid\+\_\+unary\+\_\+operator (\begin{DoxyParamCaption}\item[{char \texorpdfstring{$\ast$}{*}}]{str,  }\item[{struct \mbox{\hyperlink{struct_n}{N}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{stack }\end{DoxyParamCaption})}
-
-
-
-Validates a unary operator and pushes it onto the stack. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em str} & The input string containing the unary operator. \\
-\hline
-{\em stack} & Pointer to the pointer to the stack\textquotesingle{}s head. \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-0 on success, -\/1 on failure. 
-\end{DoxyReturn}
-\Hypertarget{s21__smartcalc_8h_acdf37b714f057441304194f00a2a92b5}\label{s21__smartcalc_8h_acdf37b714f057441304194f00a2a92b5} 
-\index{s21\_smartcalc.h@{s21\_smartcalc.h}!x\_handler@{x\_handler}}
-\index{x\_handler@{x\_handler}!s21\_smartcalc.h@{s21\_smartcalc.h}}
-\doxysubsubsection{\texorpdfstring{x\_handler()}{x\_handler()}}
-{\footnotesize\ttfamily int x\+\_\+handler (\begin{DoxyParamCaption}\item[{char \texorpdfstring{$\ast$}{*}}]{str,  }\item[{struct \mbox{\hyperlink{struct_n}{N}} \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{stack }\end{DoxyParamCaption})}
-
-
-
-Handles the \textquotesingle{}x\textquotesingle{} variable and pushes it onto the stack. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em str} & The input string containing the \textquotesingle{}x\textquotesingle{} variable. \\
-\hline
-{\em stack} & Pointer to the pointer to the stack\textquotesingle{}s head. \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-0 on success, -\/1 on failure. 
-\end{DoxyReturn}
