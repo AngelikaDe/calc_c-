@@ -18,7 +18,8 @@ class Model {
  public:
   Model() {}
   ~Model() {}
-  double calculation(const std::string& str, double x);  // REWRITE!!!
+  double calculation(const std::string& str,
+                     double x);  // how to handle errors?
   bool CheckInputErrors(const std::string& expression);
 
  private:

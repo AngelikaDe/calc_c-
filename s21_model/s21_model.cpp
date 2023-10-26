@@ -240,16 +240,15 @@ bool Model::CheckInputErrors(const std::string& expression) {
 }
 
 double Model::calculation(const std::string& str, double x) {  // REWRITE!!!
-  double err = 0;
-  if (CheckInputErrors(x_val2)) {
-    // cout << "Expression has errors." << endl;
-    err = 1;
-    return err;
-  } else {
-    answ2 = Main_foo(x_val2, x_res);
-    // cout << "Res calculation= " << answ2 << endl;
-    return err;
-  }
+  // double err = 0;
+  // if (CheckInputErrors(x_val2)) {
+  //   // cout << "Expression has errors." << endl;
+  //   err = 1;
+  //   return err;
+  // } else {
+  double answ = Main_foo(str, x);
+  // cout << "Res calculation= " << answ2 << endl;
+  return answ;
 }
 
 }  // namespace s21
