@@ -1,24 +1,27 @@
 #include "s21_smartcalc.h"
 
-void Push_to_stack(char type, double num, N& Item, stack<N>& Stack_n_or_o) {
+namespace s21 {
+
+void Model::Push_to_stack(char type, double num, N& Item,
+                          std::stack<N>& Stack_n_or_o) {
   Item.type = type;
   Item.value = num;
   Stack_n_or_o.push(Item);
 }
 
-int Get_prior(char Ch) {
+int Model::Get_prior(char Ch) {
   if (Ch == '+' || Ch == '-')
     return 1;
   else if (Ch == '*' || Ch == '/')
     return 2;
   else if (Ch == '^')
     return 3;
-  else if (isalpha(Ch))
+  else if (std::isalpha(Ch))
     return 4;
   return 0;
 }
 
-void Math(stack<N>& Stack_num, stack<N>& Stack_oper, N& Item) {
+void Model::Math(std::stack<N>& Stack_num, std::stack<N>& Stack_oper, N& Item) {
   double Num_a, Num_b;
   char Oper;
   Num_a = Stack_num.top().value;
@@ -50,40 +53,41 @@ void Math(stack<N>& Stack_num, stack<N>& Stack_oper, N& Item) {
     case '^':
       Num_b = Stack_num.top().value;
       Stack_num.pop();
-      Push_to_stack('0', pow(Num_b, Num_a), Item, Stack_num);
+      Push_to_stack('0', std::pow(Num_b, Num_a), Item, Stack_num);
       break;
     case 's':
-      Push_to_stack('0', sin(Num_a), Item, Stack_num);
+      Push_to_stack('0', std::sin(Num_a), Item, Stack_num);
       break;
     case 'c':
-      Push_to_stack('0', cos(Num_a), Item, Stack_num);
+      Push_to_stack('0', std::cos(Num_a), Item, Stack_num);
       break;
     case 't':
-      Push_to_stack('0', tan(Num_a), Item, Stack_num);
+      Push_to_stack('0', std::tan(Num_a), Item, Stack_num);
       break;
     case 'l':
-      Push_to_stack('0', log(Num_a), Item, Stack_num);
+      Push_to_stack('0', std::log(Num_a), Item, Stack_num);
       break;
     case 'i':
-      Push_to_stack('0', asin(Num_a), Item, Stack_num);
+      Push_to_stack('0', std::asin(Num_a), Item, Stack_num);
       break;
     case 'o':
-      Push_to_stack('0', acos(Num_a), Item, Stack_num);
+      Push_to_stack('0', std::acos(Num_a), Item, Stack_num);
       break;
     case 'q':
-      Push_to_stack('0', sqrt(Num_a), Item, Stack_num);
+      Push_to_stack('0', std::sqrt(Num_a), Item, Stack_num);
       break;
     case 'a':
-      Push_to_stack('0', atan(Num_a), Item, Stack_num);
+      Push_to_stack('0', std::atan(Num_a), Item, Stack_num);
       break;
     case 'g':
-      Push_to_stack('0', log10(Num_a), Item, Stack_num);
+      Push_to_stack('0', std::log10(Num_a), Item, Stack_num);
       break;
   }
 }
 
-int Check_letters(const string& Letters_read, stack<N>& Stack_num,
-                  stack<N>& Stack_oper, N& Item) {
+int Model::Check_letters(const std::string& Letters_read,
+                         std::stack<N>& Stack_num, std::stack<N>& Stack_oper,
+                         N& Item) {
   if (Letters_read == "sin" || Letters_read == "cos" || Letters_read == "tan" ||
       Letters_read == "ln") {
     while (!Stack_oper.empty() &&
@@ -127,14 +131,15 @@ int Check_letters(const string& Letters_read, stack<N>& Stack_num,
   }
   return 0;
 }
-double Main_foo(const string& Str_read, double x_res) {
-  istringstream input(Str_read);
+
+double Model::Main_foo(const std::string& Str_read, double x_res) {
+  std::istringstream input(Str_read);
   char Ch;
-  stack<N> Stack_num;
-  stack<N> Stack_oper;
+  std::stack<N> Stack_num;
+  std::stack<N> Stack_oper;
   N Item;
   double Num_read;
-  string Letters_read;
+  std::string Letters_read;
   while (input >> Ch) {
     if (Stack_oper.empty() && Stack_num.empty() && Ch == '-') {
       Push_to_stack('0', 0, Item, Stack_num);
@@ -163,14 +168,14 @@ double Main_foo(const string& Str_read, double x_res) {
       Stack_oper.pop();
     } else if (Ch == ' ') {
       continue;
-    } else if (isalpha(Ch)) {
+    } else if (std::isalpha(Ch)) {
       if (Ch == 'x') {
         Push_to_stack('0', x_res, Item, Stack_num);
       } else {
         Letters_read += Ch;
         char NextCh;
         while (input.get(NextCh)) {
-          if (!isalpha(NextCh)) {
+          if (!std::isalpha(NextCh)) {
             input.unget();
             break;
           }
@@ -190,16 +195,17 @@ double Main_foo(const string& Str_read, double x_res) {
     return Stack_num.top().value;
     Stack_num.pop();
   } else {
-    cout << "Error: Invalid expression" << endl;
+    std::cout << "Error: Invalid expression" << std::endl;
   }
   return 0;
 }
-bool isDigit(char c) { return c >= '0' && c <= '9'; }
 
-bool CheckInputErrors(const string& expression) {
-  stack<char> parentheses;
+bool Model::isDigit(char c) { return c >= '0' && c <= '9'; }
+
+bool Model::CheckInputErrors(const std::string& expression) {
+  std::stack<char> parentheses;
   int digit = 0;
-  for (size_t i = 0; i < expression.length(); i++) {
+  for (std::size_t i = 0; i < expression.length(); i++) {
     char ch = expression[i];
     if (ch == '(') {
       parentheses.push(ch);
@@ -233,7 +239,7 @@ bool CheckInputErrors(const string& expression) {
   return false;
 }
 
-double calculation(string x_val2, double& answ2, double x_res) {
+double Model::calculation(const std::string& str, double x) {  // REWRITE!!!
   double err = 0;
   if (CheckInputErrors(x_val2)) {
     // cout << "Expression has errors." << endl;
@@ -245,6 +251,8 @@ double calculation(string x_val2, double& answ2, double x_res) {
     return err;
   }
 }
+
+}  // namespace s21
 
 // int main() {
 //   string test2 = "-(((((3++2)=";
