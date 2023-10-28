@@ -1,7 +1,7 @@
 CXX = g++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++17
 
-SRCS = s21_model/s21_model.cpp
+SRCS = ./s21_model/s21_model.cc
 
 OBJS = $(SRCS:.cpp=.o)
 

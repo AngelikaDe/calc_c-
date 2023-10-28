@@ -187,17 +187,18 @@ void MainWindow::on_button_equal_clicked()
     ui->textEdit->insertPlainText("=");
     char *expression = (char*) ui->textEdit->toPlainText().toStdString().c_str();
     double answer = 0;
-    char *x = "N";
     double x_res = 0;
-    if (!ui->x_value->toPlainText().isEmpty()) {
-        x = (char*)ui->x_value->toPlainText().toStdString().c_str();
-        x_res = atof(x);
-    }
-    double err = calculation(expression, answer, x_res);
-    if (err) {
+    s21::Controller control;
+    int err = control.Validate(expression);
+    if(err) {
         ui->textEdit->setText("ERROR");
-    }
-    else {
+    } else {
+        if(!ui->x_value->toPlainText().isEmpty()){
+            x_res = ui->x_value->toPlainText().toDouble();
+        } else {
+            x_res = 0;
+        }
+        answer = control.Calculation(expression, x_res);
         ui->textEdit->setText(QString::number(answer));
     }
 }
@@ -228,21 +229,28 @@ void MainWindow::on_draw_graph_clicked()
     //Пробегаем по всем точкам
     ui->textEdit->insertPlainText("=");
     char *expression = (char*) ui->textEdit->toPlainText().toStdString().c_str();
+    double answer = 0;
+    double x_res = 0;
+    s21::Controller control;
 
     for (double X = a; i < N; X += h) { //X <= b
         x[i] = X;
         double answer = 0.0;
-        std::string X_str = std::to_string(X);
-        const char* X_char = X_str.c_str();
-        double x_res = atof(X_char);
-        double err = calculation(expression, answer, x_res);
+        int err = control.Validate(expression);
         if (err) {
             ui->textEdit->setText("ERROR");
             return;
         }
+        if(!ui->x_value->toPlainText().isEmpty()){
+            x_res = ui->x_value->toPlainText().toDouble();
+        } else {
+            x_res = 0;
+        }
+        answer = control.Calculation(expression, x_res);
         y[i] = answer;
         i++;
     }
+
     ui->widget->clearGraphs();//Если нужно, но очищаем все графики
 
     //Добавляем один график в widget
@@ -256,7 +264,7 @@ void MainWindow::on_draw_graph_clicked()
     ui->widget->yAxis->setLabel("y");
 
     //Установим область, которая будет показываться на графике
-    ui->widget->xAxis->setRange(a, b);//Для оси Ox
+    ui->widget->xAxis->setRange(-1, 1);//Для оси Ox
 
     //Для показа границ по оси Oy сложнее, так как надо по правильному
     //вычислить минимальное и максимальное значение в векторах
@@ -269,5 +277,11 @@ void MainWindow::on_draw_graph_clicked()
 
     //И перерисуем график на нашем widget
     ui->widget->replot();
+}
+
+
+void MainWindow::on_button_exp_clicked()
+{
+    ui->textEdit->insertPlainText("exp(");
 }
 

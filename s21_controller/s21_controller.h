@@ -10,7 +10,7 @@ class Controller {
  public:
   Controller() {}
   ~Controller() {}
-  double Calculation(std::string& str, double x);
+  double Calculation(const std::string& str, double x);
   int Validate(const std::string& str);
 
  private:

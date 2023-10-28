@@ -5,7 +5,8 @@
 //extern "C" {
 //#include "../s21_smartcalc.h"
 //}
-#include "../s21_smartcalc.h"
+#include "../s21_model/s21_smartcalc.h"
+#include "../s21_controller/s21_controller.h"
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
@@ -82,6 +83,8 @@ private slots:
     void on_button_pow_clicked();
 
     void on_draw_graph_clicked();
+
+    void on_button_exp_clicked();
 
 private:
     Ui::MainWindow *ui;

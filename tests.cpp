@@ -6,8 +6,13 @@ TEST(FirstTest, CalculateExpression1) {
   const std::string str = "((24+24+8)*23/56)=";
   double answer;
   double x_res = 0;
-  answer = model.calculation(str, x_res);
+  answer = model.Calculate(str, x_res);
   EXPECT_NEAR(answer, 23, 1e-7);
+
+  const std::string str1 = "23-4-6=";
+  double answer1;
+  answer1 = model.Calculate(str1, x_res);
+  EXPECT_NEAR(answer1, 13, 1e-7);
 }
 
 TEST(FirstTest, CalculateExpression2) {
@@ -15,7 +20,7 @@ TEST(FirstTest, CalculateExpression2) {
   const std::string str = "(2^2+34*34)=";
   double answer;
   double x_res = 4.4;
-  answer = model.calculation(str, x_res);
+  answer = model.Calculate(str, x_res);
   EXPECT_NEAR(answer, 1160, 1e-7);
 }
 
@@ -24,17 +29,17 @@ TEST(SecondTest, TrigonometricFunctions) {
   const std::string str = "sin(asin(1))=";
   double answ1 = 0.0;
   double x_res = 4.4;
-  answ1 = model.calculation(str, x_res);
+  answ1 = model.Calculate(str, x_res);
   EXPECT_NEAR(answ1, 1.0, 1e-7);
 
   const std::string str1 = "cos(acos(1))=";
   double answ2 = 0.0;
-  answ2 = model.calculation(str1, x_res);
+  answ2 = model.Calculate(str1, x_res);
   EXPECT_NEAR(answ2, 1.0, 1e-7);
 
   const std::string str2 = "tan(atan(0.5))=";
   double answ3 = 0.0;
-  answ3 = model.calculation(str2, x_res);
+  answ3 = model.Calculate(str2, x_res);
   EXPECT_NEAR(answ3, 0.5, 1e-7);
 }
 
@@ -43,17 +48,17 @@ TEST(SecondTest, LogarithmicFunctions) {
   const std::string str3 = "log((3^3))=";
   double answ1 = 0.0;
   double x_res = 4.4;
-  answ1 = model.calculation(str3, x_res);
+  answ1 = model.Calculate(str3, x_res);
   EXPECT_NEAR(answ1, 1.4313637, 1e-7);
 
   const std::string str4 = "sqrt(3^2)=";
   double answ2 = 0.0;
-  answ2 = model.calculation(str4, x_res);
+  answ2 = model.Calculate(str4, x_res);
   EXPECT_NEAR(answ2, 3.0, 1e-7);
 
   const std::string str5 = "log(5)=";
   double answ3 = 0.0;
-  answ3 = model.calculation(str5, x_res);
+  answ3 = model.Calculate(str5, x_res);
   EXPECT_NEAR(answ3, 0.6989700, 1e-7);
 }
 
@@ -62,7 +67,7 @@ TEST(ThirdTest, ExpressionWithX) {
   const std::string str = "5+x=";
   double answ4;
   double x_res = 3;
-  answ4 = model.calculation(str, x_res);
+  answ4 = model.Calculate(str, x_res);
   EXPECT_NEAR(answ4, 8, 1e-7);
 }
 

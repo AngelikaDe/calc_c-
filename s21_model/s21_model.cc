@@ -38,7 +38,7 @@ void Model::Math(std::stack<N>& Stack_num, std::stack<N>& Stack_oper, N& Item) {
     case '-':
       Num_b = Stack_num.top().value;
       Stack_num.pop();
-      Push_to_stack('0', Num_a - Num_b, Item, Stack_num);
+      Push_to_stack('0', Num_b - Num_a, Item, Stack_num);
       break;
     case '*':
       Num_b = Stack_num.top().value;
@@ -81,6 +81,9 @@ void Model::Math(std::stack<N>& Stack_num, std::stack<N>& Stack_oper, N& Item) {
       break;
     case 'g':
       Push_to_stack('0', std::log10(Num_a), Item, Stack_num);
+      break;
+    case 'e':
+      Push_to_stack('0', std::exp(Num_a), Item, Stack_num);
       break;
   }
 }
@@ -125,6 +128,12 @@ int Model::Check_letters(const std::string& Letters_read,
       Math(Stack_num, Stack_oper, Item);
     }
     Push_to_stack('g', 0, Item, Stack_oper);
+  } else if (Letters_read == "exp") {  // exp = e
+    while (!Stack_oper.empty() &&
+           Get_prior('e') <= Get_prior(Stack_oper.top().type)) {
+      Math(Stack_num, Stack_oper, Item);
+    }
+    Push_to_stack('e', 0, Item, Stack_oper);
   } else {
     // cout << "Invalid function: " << Letters_read << endl;
     return 1;
@@ -181,6 +190,8 @@ double Model::Main_foo(const std::string& Str_read, double x_res) {
           }
           Letters_read += NextCh;
         }
+
+        // std::cout << Letters_read << std::endl;
         Check_letters(Letters_read, Stack_num, Stack_oper, Item);
         Letters_read.clear();
       }
@@ -195,7 +206,7 @@ double Model::Main_foo(const std::string& Str_read, double x_res) {
     return Stack_num.top().value;
     Stack_num.pop();
   } else {
-    std::cout << "Error: Invalid expression" << std::endl;
+    std::cout << "Error: Invalid expression" << std::endl;  /// error!!
   }
   return 0;
 }
@@ -239,7 +250,7 @@ bool Model::CheckInputErrors(const std::string& expression) {
   return false;
 }
 
-double Model::calculation(const std::string& str, double x) {  // REWRITE!!!
+double Model::Calculate(const std::string& str, double x) {  // REWRITE!!!
   // double err = 0;
   // if (CheckInputErrors(x_val2)) {
   //   // cout << "Expression has errors." << endl;
@@ -254,15 +265,10 @@ double Model::calculation(const std::string& str, double x) {  // REWRITE!!!
 }  // namespace s21
 
 // int main() {
-//   string test2 = "-(((((3++2)=";
-//   if (CheckInputErrors(test2)) {
-//     cout << "Expression has errors." << endl;
-//   } else {
-//     // Proceed with your calculations
-//     double x = 0;
-//     double answ3 = Main_foo(test2, x);
-//     cout << "Res main = " << answ3 << endl;
-//   }
+//   s21 ::Model model;
+//   std::string test2 = "exp(3)";
+//   double answ = model.Calculate(test2, 0);
+//   std::cout << "Res calculation= " << answ << std::endl;
 
 //   return 0;
 // }

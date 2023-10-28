@@ -2,8 +2,8 @@
 
 namespace s21 {
 
-double Controller::Calculation(std::string& str, double x) {
-  double result = model_.calculation(str, x);
+double Controller::Calculation(const std::string& str, double x) {
+  double result = model_.Calculate(str, x);
   return result;
 }
 

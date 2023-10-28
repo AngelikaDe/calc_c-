@@ -400,9 +400,9 @@
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>440</y>
+      <y>430</y>
       <width>91</width>
-      <height>41</height>
+      <height>31</height>
      </rect>
     </property>
     <property name="text">
@@ -441,7 +441,7 @@
       <x>10</x>
       <y>400</y>
       <width>91</width>
-      <height>41</height>
+      <height>31</height>
      </rect>
     </property>
     <property name="text">
@@ -479,6 +479,19 @@
       <width>191</width>
       <height>201</height>
      </rect>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="button_exp">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>460</y>
+      <width>91</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>exp</string>
     </property>
    </widget>
   </widget>
