@@ -2,12 +2,40 @@
 
 namespace s21 {
 
+// void PrintStack(const std::stack<N>& mystack) {
+//   std::stack<N> tempStack = mystack;  // Create a temporary stack for
+//   iteration
+
+//       while (!tempStack.empty()) {
+//     N element = tempStack.top();
+//     tempStack.pop();
+//     std::cout << element
+//               << " ";  // Print the element using the overloaded operator
+//   }
+
+//   std::cout << std::endl;  // Add a newline after printing all elements
+// }
+
 void Model::Push_to_stack(char type, double num, N& Item,
                           std::stack<N>& Stack_n_or_o) {
   Item.type = type;
   Item.value = num;
   Stack_n_or_o.push(Item);
 }
+
+// void Model::PrintStack(const std::stack<N>& mystack) {
+//   std::stack<N> tempStack = mystack;  // Create a temporary stack for
+//   iteration
+
+//   while (!tempStack.empty()) {
+//     N element = tempStack.top();
+//     tempStack.pop();
+//     std::cout << element
+//               << " ";  // Print the element using the overloaded operator
+//   }
+
+//   std::cout << std::endl;  // Add a newline after printing all elements
+// }
 
 int Model::Get_prior(char Ch) {
   if (Ch == '+' || Ch == '-')
@@ -143,26 +171,54 @@ int Model::Check_letters(const std::string& Letters_read,
 
 double Model::Main_foo(const std::string& Str_read, double x_res) {
   std::istringstream input(Str_read);
-  char Ch;
+  char Ch = '\0';
   std::stack<N> Stack_num;
   std::stack<N> Stack_oper;
   N Item;
   double Num_read;
   std::string Letters_read;
+  size_t num_read = 0;
+  char prev_num = 'y';
+  // char prev_char = prev_num;
+  // prev_num = Ch;
   while (input >> Ch) {
-    if (Stack_oper.empty() && Stack_num.empty() && Ch == '-') {
+    char prev_char = prev_num;
+    prev_num = Ch;
+    // std::cout << "Res = " << prev_num << std::endl;
+    num_read += 1;
+    if ((Stack_oper.empty() && Stack_num.empty() && Ch == '-')) {
+      // ||
+      //     ((Ch == '-' && Stack_oper.top().type == '(') &&
+      //     !isdigit(prev_num))) {
       Push_to_stack('0', 0, Item, Stack_num);
       Push_to_stack(Ch, 0, Item, Stack_oper);
-    } else if (Ch >= '0' && Ch <= '9') {
+      // std::cout << "here" << std::endl;
+    } else if (isdigit(Ch)) {
       input.unget();
       input >> Num_read;
       Push_to_stack('0', Num_read, Item, Stack_num);
+
+      // std::cout << "here" << std::endl;
     } else if (Ch == '-' || Ch == '+' || Ch == '*' || Ch == '/' || Ch == '^') {
-      while (!Stack_oper.empty() &&
-             Get_prior(Ch) <= Get_prior(Stack_oper.top().type)) {
-        Math(Stack_num, Stack_oper, Item);
+      if ((Ch == '-' && !Stack_oper.empty() && Stack_oper.top().type == '(') &&
+          (!isdigit(prev_char))) {
+        Push_to_stack('0', 0, Item, Stack_num);
+        // std::cout << "here" << Ch << std::endl;
+        std::cout << "here " << prev_char << std::endl;
+      } else {
+        // if (Ch == '-' && isMinusAfterOpeningParenthesis(Str_read, num_read))
+        // {
+        //   std::cout << "HENRL " << Ch << std::endl;
+        //   Push_to_stack('0', 0, Item, Stack_num);
+        // }
+        while (!Stack_oper.empty() &&
+               Get_prior(Ch) <= Get_prior(Stack_oper.top().type)) {
+          Math(Stack_num, Stack_oper, Item);
+          // std::cout << "here" << Ch << std::endl;
+        }
       }
       Push_to_stack(Ch, 0, Item, Stack_oper);
+      // std::cout << "here" << Ch << std::endl;
     } else if (Ch == '=') {
       while (!Stack_oper.empty()) {
         Math(Stack_num, Stack_oper, Item);
@@ -200,14 +256,18 @@ double Model::Main_foo(const std::string& Str_read, double x_res) {
       return 1;
     }
   }
-
+  // std::cout << "hene " << Ch << std::endl;
   if (Stack_num.size() == 1 && Stack_oper.empty()) {
     // cout << "Res = " << Stack_num.top().value << endl;
     return Stack_num.top().value;
     Stack_num.pop();
   } else {
+    // PrintStack(Stack_num);
+    // std::cout << "hene " << std::endl;
+    // PrintStack(Stack_oper);
     std::cout << "Error: Invalid expression" << std::endl;  /// error!!
   }
+  // prev_num = Ch;
   return 0;
 }
 
@@ -266,9 +326,12 @@ double Model::Calculate(const std::string& str, double x) {  // REWRITE!!!
 
 // int main() {
 //   s21 ::Model model;
-//   std::string test2 = "exp(3)";
+//   std::string test2 = "-(-34-3)=";
 //   double answ = model.Calculate(test2, 0);
 //   std::cout << "Res calculation= " << answ << std::endl;
 
 //   return 0;
 // }
+
+// // -(34-3)=
+// (34-3)=

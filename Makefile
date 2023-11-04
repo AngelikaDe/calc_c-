@@ -48,6 +48,3 @@ dist: uninstall
 
 run: install
 	build/calc.app/Contents/MacOS/./calc
-
-style:
-	clang-format -n *.cpp *.h --style=Google

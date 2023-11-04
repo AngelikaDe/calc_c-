@@ -13,6 +13,10 @@ TEST(FirstTest, CalculateExpression1) {
   double answer1;
   answer1 = model.Calculate(str1, x_res);
   EXPECT_NEAR(answer1, 13, 1e-7);
+
+  const std::string str2 = "-3-4=";
+  answer1 = model.Calculate(str2, x_res);
+  EXPECT_NEAR(answer1, -7, 1e-7);
 }
 
 TEST(FirstTest, CalculateExpression2) {
@@ -71,20 +75,15 @@ TEST(ThirdTest, ExpressionWithX) {
   EXPECT_NEAR(answ4, 8, 1e-7);
 }
 
-// TEST(FourthTest, ErrorExpression) {
-//   std::string x_val4 = "(3++2)=";
-//   double answ5;
-//   double x_res = 3;
-//   answ5 = calculation(str, x_res);
-//   EXPECT_EQ(res, 1);
+TEST(FourthTest, ErrorExpression) {
+  s21::Model model;
+  std::string x_val4 = "(3++2)=";
+  double answ5;
+  answ5 = model.CheckInputErrors(x_val4);
+  EXPECT_EQ(answ5, 1);
 
-//   std::string x_val5 = "(()=";
-//   double answ6;
-//   answ6 = calculation(str, x_res);
-//   EXPECT_EQ(res2, 1);
-
-//   std::string x_val6 = "sinsin3=";
-//   double answ7;
-//   answ7 = calculation(str, x_res);
-//   EXPECT_EQ(res3, 1);
-// }
+  std::string x_val5 = "(()=";
+  double answ6;
+  answ6 = model.CheckInputErrors(x_val5);
+  EXPECT_EQ(answ6, 1);
+}

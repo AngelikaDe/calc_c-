@@ -14,6 +14,11 @@ typedef struct N {
   double value;
 } N;
 
+// std::ostream& operator<<(std::ostream& os, const N& n) {
+//   os << "type: " << n.type << ", value: " << n.value;
+//   return os;
+// }
+
 class Model {
  public:
   Model() {}
@@ -22,6 +27,7 @@ class Model {
   bool CheckInputErrors(const std::string& expression);
 
  private:
+  // void PrintStack(const std::stack<N>& mystack);
   int Get_prior(char Ch);
   bool isDigit(char c);
   double Main_foo(const std::string& Str_read, double x_res);
@@ -31,6 +37,8 @@ class Model {
   void Math(std::stack<N>& Stack_num, std::stack<N>& Stack_oper, N& Item);
   void Push_to_stack(char type, double num, N& Item,
                      std::stack<N>& Stack_n_or_o);
+  // bool isMinusAfterOpeningParenthesis(const std::string& expression,
+  //                                     size_t position);
 };
 
 }  // namespace s21

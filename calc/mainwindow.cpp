@@ -218,15 +218,12 @@ void MainWindow::on_button_pow_clicked()
 
 void MainWindow::on_draw_graph_clicked()
 {
-    double a = -1; //Начало интервала, где рисуем график по оси Ox
-    double b =  1; //Конец интервала, где рисуем график по оси Ox
-    double h = 0.1; //Шаг, с которым будем пробегать по оси Ox
-    int N = (b - a) / h + 2; //Вычисляем количество точек, которые будем отрисовывать
-    QVector<double> x(N), y(N); //Массивы координат точек
-
-    //Вычисляем наши данные
+    double a = -1;
+    double b =  1;
+    double h = 0.1;
+    int N = (b - a) / h + 2;
+    QVector<double> x(N), y(N);
     int i=0;
-    //Пробегаем по всем точкам
     ui->textEdit->insertPlainText("=");
     char *expression = (char*) ui->textEdit->toPlainText().toStdString().c_str();
     double answer = 0;
@@ -251,31 +248,18 @@ void MainWindow::on_draw_graph_clicked()
         i++;
     }
 
-    ui->widget->clearGraphs();//Если нужно, но очищаем все графики
-
-    //Добавляем один график в widget
+    ui->widget->clearGraphs();
     ui->widget->addGraph();
-
-    //Говорим, что отрисовать нужно график по нашим двум массивам x и y
     ui->widget->graph(0)->setData(x, y);
-
-    //Подписываем оси Ox и Oy
     ui->widget->xAxis->setLabel("x");
     ui->widget->yAxis->setLabel("y");
-
-    //Установим область, которая будет показываться на графике
-    ui->widget->xAxis->setRange(-1, 1);//Для оси Ox
-
-    //Для показа границ по оси Oy сложнее, так как надо по правильному
-    //вычислить минимальное и максимальное значение в векторах
+    ui->widget->xAxis->setRange(-1, 1);
     double minY = y[0], maxY = y[0];
     for (int i = 1; i < N; i++) {
         if (y[i] < minY) minY = y[i];
         if (y[i] > maxY) maxY = y[i];
     }
-    ui->widget->yAxis->setRange(minY, maxY);//Для оси Oy
-
-    //И перерисуем график на нашем widget
+    ui->widget->yAxis->setRange(minY, maxY);
     ui->widget->replot();
 }
 
