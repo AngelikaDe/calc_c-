@@ -37,7 +37,6 @@ dvi:
 
 uninstall: clean
 	rm -Rf build
-
 install:
 	[ -d build ] || mkdir -p build
 	cd build && qmake ../calc
